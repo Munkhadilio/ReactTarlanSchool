@@ -1,0 +1,152 @@
+@import './../../sass/base/mixins';
+
+.root {
+  margin-top: 100px;
+  @include animation_speed;
+  .container {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .title {
+    @include title;
+  }
+  .items {
+    display: grid;
+    gap: 40px;
+    margin: 65px auto 0 auto;
+    .item {
+      padding: 30px 40px 30px 40px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      .icon {
+        > svg {
+          width: 80px;
+          height: 80px;
+          fill: #27205d;
+        }
+      }
+      .text {
+        color: #006a46;
+        text-align: justify;
+        font-family: 'Montserrat Alternates';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 149.4%;
+      }
+    }
+  }
+}
+
+.visible {
+  @include visible;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .root {
+    margin-top: 65px;
+    .container {
+      padding: 0 15px 0 15px;
+      .title {
+        @include title;
+        font-size: 30px;
+      }
+      .items {
+        display: grid;
+        gap: 40px;
+        margin: 30px auto 0 auto;
+        .item {
+          padding: 10px 10px;
+          display: flex;
+          justify-content: space-between;
+          gap: 30px;
+          .icon {
+            > svg {
+              width: 60px;
+              height: 60px;
+              fill: #27205d;
+            }
+          }
+          .text {
+            font-size: 20px;
+            line-height: 149.4%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    margin-top: 65px;
+    .container {
+      padding: 0 15px 0 15px;
+      .title {
+        @include title;
+        font-size: 30px;
+      }
+      .items {
+        display: grid;
+        gap: 20px;
+        margin: 30px auto 0 auto;
+        .item {
+          padding: 10px 10px;
+          background: #f5f5f5;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          .icon {
+            > svg {
+              width: 80px;
+              height: 60px;
+              fill: #27205d;
+            }
+          }
+          .text {
+            color: #006a46;
+            text-align: justify;
+            font-family: 'Montserrat Alternates';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130.4%;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Минимальная ширина телефона 320px
+@media (max-width: 576px) {
+  .root {
+    .container {
+      .items {
+        .item {
+          .icon {
+            > svg {
+              width: 60px;
+              height: 50px;
+              fill: #27205d;
+            }
+          }
+          .text {
+            font-size: 16px;
+            line-height: 130.4%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import '../../sass/base/mixins';
+
+.root {
+  margin-top: 65px;
+  @include animation_speed;
+  .container {
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 0 8px 0 8px;
+    h1 {
+      @include title;
+    }
+
+    .text {
+      margin-top: 65px;
+      color: #000;
+      text-align: justify;
+      font-family: 'Montserrat Alternates';
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 149.4%; /* 32.868px */
+    }
+  }
+}
+
+.visible {
+  @include visible;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .root {
+    margin-top: 65px;
+    .container {
+      max-width: 1070px;
+      margin: 0 auto;
+      padding: 0 20px 0 20px;
+      h1 {
+        @include title;
+        font-size: 30px;
+      }
+
+      .text {
+        margin-top: 30px;
+        color: #000;
+        text-align: justify;
+        font-family: 'Montserrat Alternates';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 149.4%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+//Минимальная ширина телефона 320px
+@media (max-width: 576px) {
+}

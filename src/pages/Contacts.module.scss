@@ -1,0 +1,126 @@
+@import './../sass/base/mixins';
+
+.root {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8px 0 8px;
+    .title {
+      @include title;
+      margin-top: 65px;
+    }
+    .wrapper {
+      margin-top: 65px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 390px;
+        .items {
+          .name {
+            color: #27205d;
+            font-family: 'Roboto';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 19px; /* 95% */
+          }
+          .num {
+            display: block;
+            margin-top: 10px;
+            color: #000;
+            font-family: 'Roboto';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
+          }
+        }
+      }
+      .responsive__map {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .root {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 0 20px;
+      .title {
+        @include title;
+        margin-top: 65px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .root {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 0 20px;
+      .title {
+        @include title;
+        margin-top: 65px;
+        font-size: 30px;
+      }
+      .wrapper {
+        .contacts {
+          gap: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 782px) {
+  .root {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 0 20px;
+      .title {
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        .contacts {
+          gap: 15px;
+        }
+        .responsive__map {
+          width: 100%;
+          height: 400px;
+        }
+      }
+    }
+  }
+}
+
+//Минимальная ширина телефона 320px
+@media (max-width: 576px) {
+  .root {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 0 20px;
+      .title {
+      }
+      .wrapper {
+        .contacts {
+        }
+        .responsive__map {
+        }
+      }
+    }
+  }
+}

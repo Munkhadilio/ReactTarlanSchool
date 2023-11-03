@@ -1,0 +1,133 @@
+@import '../../sass/base/mixins';
+
+.root {
+  margin-top: 100px;
+
+  .title {
+    @include title;
+  }
+  .wrapper {
+    margin-top: 65px;
+    display: grid;
+    grid-template-columns: 334px 1fr;
+    align-items: center;
+    gap: 40px;
+    img {
+      max-width: 334.596px;
+      max-height: 428px;
+    }
+    .director {
+      display: flex;
+      flex-direction: column;
+      &__text {
+        color: #000;
+        text-align: justify;
+        font-family: Montserrat Alternates;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: 500;
+        line-height: 149.4%; /* 32.868px */
+      }
+      &__name {
+        color: #000;
+        text-align: justify;
+        font-family: Montserrat Alternates;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 149.4%; /* 32.868px */
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .root {
+    margin-top: 100px;
+
+    .title {
+      @include title;
+      font-size: 30px;
+    }
+    .wrapper {
+      margin-top: 30px;
+      gap: 40px;
+      img {
+        max-width: 334.596px;
+        max-height: 428px;
+      }
+      .director {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &__text {
+          color: #000;
+          text-align: justify;
+          font-family: Montserrat Alternates;
+          font-size: 19px;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 116%;
+        }
+        &__name {
+          color: #000;
+          text-align: justify;
+          font-family: Montserrat Alternates;
+          font-size: 19px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 116%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    margin-top: 50px;
+    .wrapper {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 334.596px;
+        max-height: 428px;
+      }
+      .director {
+        display: flex;
+        flex-direction: column;
+        &__text {
+          color: #000;
+          text-align: justify;
+          font-family: Montserrat Alternates;
+          font-size: 16px;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 149.4%; /* 32.868px */
+        }
+        &__name {
+          color: #000;
+          text-align: justify;
+          font-family: Montserrat Alternates;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 149.4%; /* 32.868px */
+        }
+      }
+    }
+  }
+}
+
+//Минимальная ширина телефона 320px
+@media (max-width: 576px) {
+}

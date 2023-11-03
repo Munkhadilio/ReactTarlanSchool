@@ -1,0 +1,347 @@
+@import '../../sass/base/mixins';
+
+.root {
+  margin-top: 100px;
+  @include animation_speed;
+
+  .title {
+    @include title;
+  }
+
+  .items {
+    margin-top: 65px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    .item {
+      display: flex;
+      height: 397px;
+      background-color: #ffffff;
+      img {
+        width: 50%;
+      }
+      .card {
+        width: 50%;
+        padding: 0 17px 0 17px;
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        .descr {
+          color: #27205d;
+          font-family: Montserrat Alternates;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 27px; /* 112.5% */
+        }
+
+        .text {
+          margin-top: 45px;
+          color: #000;
+          font-family: 'Montserrat Alternates';
+          font-size: 19px;
+          font-weight: 500;
+          line-height: 31px;
+        }
+      }
+    }
+  }
+}
+
+.visible {
+  @include visible;
+}
+
+@media (max-width: 1200px) {
+  .root {
+    margin-top: 100px;
+
+    .title {
+      @include title;
+    }
+
+    .items {
+      margin: 65px auto 0 auto;
+      .item {
+        display: flex;
+        height: 397px;
+        background-color: #ffffff;
+        img {
+          width: 50%;
+        }
+        .card {
+          width: 50%;
+          padding: 0 10px 0 10px;
+          margin-top: 30px;
+          .descr {
+            color: #27205d;
+            font-family: 'Montserrat Alternates';
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 27px; /* 112.5% */
+          }
+
+          .text {
+            margin-top: 28px;
+            color: #000;
+            font-family: 'Montserrat Alternates';
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 31px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .root {
+    margin-top: 65px;
+    .title {
+      @include title;
+      font-size: 30px;
+    }
+
+    .items {
+      margin: 30px auto 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      .first {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      .second {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+      .third {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+      }
+      .fourth {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+
+      .item {
+        display: flex;
+        height: 397px;
+        width: 100%;
+        background-color: #ffffff;
+
+        img {
+          width: 50%; /* Чтобы изображение полностью заполнило контейнер */
+          height: 100%;
+          object-fit: cover; /* Это свойство говорит изображению обрезаться и сохранять пропорции */
+        }
+        .card {
+          padding: 0 0 0 0;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          &__content {
+            width: 80%;
+          }
+          .descr {
+            color: #27205d;
+            font-family: 'Montserrat Alternates';
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 27px; /* 112.5% */
+          }
+
+          .text {
+            margin-top: 45px;
+            color: #000;
+            font-family: 'Montserrat Alternates';
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 31px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    margin-top: 65px;
+
+    .title {
+      @include title;
+      font-size: 30px;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      width: 100%;
+      margin: 30px auto 0 auto;
+      .first {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      .second {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+      .third {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+      }
+      .fourth {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+
+      .item {
+        display: flex;
+        height: 397px;
+        width: 100%;
+        background-color: #ffffff;
+
+        img {
+          width: 50%; /* Чтобы изображение полностью заполнило контейнер */
+          height: 100%;
+          object-fit: cover; /* Это свойство говорит изображению обрезаться и сохранять пропорции */
+        }
+        .card {
+          padding: 0 0 0 0;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          &__content {
+            width: 80%;
+          }
+          .descr {
+            color: #27205d;
+            font-family: 'Montserrat Alternates';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 27px; /* 112.5% */
+          }
+
+          .text {
+            margin-top: 45px;
+            color: #000;
+            font-family: 'Montserrat Alternates';
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 31px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    margin-top: 65px;
+
+    .title {
+      @include title;
+      font-size: 30px;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      width: 100%;
+      margin: 30px auto 0 auto;
+      .first {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      .second {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+      .third {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+      }
+      .fourth {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+
+      .item {
+        display: flex;
+        height: 397px;
+        width: 100%;
+        background-color: #ffffff;
+
+        img {
+          width: 50%; /* Чтобы изображение полностью заполнило контейнер */
+          height: 100%;
+          object-fit: cover; /* Это свойство говорит изображению обрезаться и сохранять пропорции */
+        }
+        .card {
+          padding: 0 0 0 0;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          &__content {
+            width: 90%;
+          }
+          .descr {
+            color: #27205d;
+            font-family: 'Montserrat Alternates';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 27px; /* 112.5% */
+          }
+
+          .text {
+            margin-top: 45px;
+            color: #000;
+            font-family: 'Montserrat Alternates';
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+}

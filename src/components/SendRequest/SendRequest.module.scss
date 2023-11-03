@@ -1,0 +1,75 @@
+@import '../../sass/base/mixins';
+
+.root {
+  margin-top: 65px;
+  @include animation_speed;
+  .schoolIMG {
+    display: block;
+    margin: 0 auto;
+    width: 85%;
+  }
+}
+
+.title {
+  text-align: center;
+  color: #271d62;
+  font-family: 'Montserrat Alternates';
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.buttons {
+  margin: 48px 0 0 0;
+  display: flex;
+  justify-content: center;
+  .apply__button {
+    @include mix_button;
+    border-radius: 5px;
+    background: #271d62;
+    max-width: 260px;
+    width: 100%;
+    margin-right: 25px;
+    &:hover {
+      cursor: pointer;
+    }
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+  .button__consultation {
+    @include mix_button;
+    border-radius: 5px;
+    max-width: 330px;
+    width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.visible {
+  @include visible;
+}
+
+@media (max-width: 1200px) {
+  .root {
+    margin-top: 65px;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    margin-top: 50px;
+  }
+}
+
+//Минимальная ширина телефона 320px
+@media (max-width: 576px) {
+  .root {
+    margin-top: 65px;
+    .title {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@mixin mix_button {
+  border-radius: 5px;
+  background: #ef6c49;
+  border: none;
+  height: 42px;
+  color: #fff;
+  text-align: center;
+  max-width: 225px;
+  font-family: 'Roboto';
+  font-size: 14.125px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@mixin title {
+  color: #27205d;
+  text-align: center;
+  font-family: 'Montserrat Alternates';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin animation_speed {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in-out, transform 1s ease-in-out;
+}
+
+@mixin visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@mixin mbutton {
+  width: 152px;
+  height: 36px;
+  background: #000000;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
