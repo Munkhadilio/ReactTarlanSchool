@@ -1,0 +1,49 @@
+.root {
+  margin-top: 65px;
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+    .fullPost {
+      &__createdAt {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat Alternates';
+        font-weight: 600;
+      }
+      &__title {
+        text-align: start;
+        color: #271d62;
+        font-family: 'Montserrat Alternates';
+        font-size: 40px;
+        font-weight: 700;
+        margin-top: 15px;
+        word-wrap: break-word;
+      }
+      &__img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        max-width: 100%;
+        height: auto;
+        width: 760px;
+      }
+      &__text {
+        margin: 30px 0 50px;
+        text-align: justify;
+        h1 {
+          font-size: 28px;
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 30px;
+        }
+
+        &__dark {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
