@@ -64,13 +64,29 @@
         line-height: normal;
       }
       .auth {
-        margin-top: 21px;
+        display: block;
+        text-decoration: none;
+        margin-top: 12px;
         color: #fff;
         font-family: 'Roboto';
         font-size: 15px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+      }
+      .log__out {
+        margin-top: 12px;
+        color: #ffffff;
+        background: #9e0000;
+        border-radius: 5px;
+        width: 74px;
+        height: 36px;
+        transition: transform 0.3s;
+        border: none;
+        &:hover {
+          transform: scale(1.1);
+          cursor: pointer;
+        }
       }
     }
     .block2 {
@@ -96,6 +112,9 @@
           font-style: normal;
           font-weight: 700;
           line-height: 19px; /* 118.75% */
+        }
+        a {
+          text-decoration: none;
         }
         .num {
           color: #fff;
@@ -331,7 +350,7 @@
       padding: 55px 0 55px 0;
       justify-content: space-around;
       grid-template-columns: 1fr;
-      grid-template-rows: 309px 317px 210px 190px;
+      grid-template-rows: 350px 317px 210px 190px;
       gap: 40px;
       .block1 {
         max-width: 260px;

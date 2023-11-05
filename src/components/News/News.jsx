@@ -1,54 +1,105 @@
 import React from 'react';
 import styles from './News.module.scss';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import { format } from 'date-fns';
 import { useInView } from 'react-intersection-observer';
-import newsIMG1 from './../../images/news/news1.jpg';
-import newsIMG2 from './../../images/news/news2.jpg';
-import newsIMG3 from './../../images/news/news3.jpg';
+import { fetchPosts, fetchRemovePost } from './../../redux/slices/posts';
+import { useDispatch, useSelector } from 'react-redux';
+import config from '../../config';
+import { Link, useLocation } from 'react-router-dom';
+import { userDetails } from '../../redux/slices/auth';
+import { GrEdit } from 'react-icons/gr';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 export const News = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const userData = useSelector(userDetails);
+
+  React.useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+
+  const onClickRemove = (id) => {
+    if (window.confirm('Вы действительно хотите удалить статью?')) {
+      dispatch(fetchRemovePost(id));
+    }
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return format(date, 'dd.MM.yyyy');
+  };
+
+  const { posts } = useSelector((state) => state.posts);
+
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
-
-  const data = [
-    {
-      img: newsIMG1,
-      title: 'Как выбрать профессию?',
-      descr:
-        'Считается, что сегодняшним школьникам за жизнь придётся сменить 5–7 профессий. Такой уж им достался стремительно меняющийся и непредсказуемый мир.',
-      date: '03.02.23',
-    },
-
-    {
-      img: newsIMG3,
-      title: 'Как выбрать профессию?',
-      descr:
-        'Друзья в детстве — важнейший ресурс для развития. С ними мы проходим первые уроки про доверие, коммуникацию, решение конфликтов, эмпатию, самооценку, поддержку.',
-      date: '03.10.23',
-    },
-    {
-      img: newsIMG2,
-      title: 'Программы на каникулы с 9 по 13 октября',
-      descr: 'Мы спросили ChatGPT, что такое школьные каникулы, и получили ответ...',
-      date: '08.10.22',
-    },
-  ];
 
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <h1 className={styles.title}>Новости школы</h1>
-        <div className={styles.items}>
-          {data.map((data, index) => (
-            <div className={styles.item} key={index}>
-              <img className={styles.news__img} src={data.img} alt="" />
-              <h2 className={styles.news__title}>{data.title} </h2>
-              <h3 className={styles.news__descr}>{data.descr}</h3>
-              <h4 className={styles.news__date}>{data.date}</h4>
+        {/* posts.items.length */}
+        {posts.items.length > 0 ? (
+          <>
+            <div className={styles.items}>
+              {posts.items.slice(0, 4).map((obj, index) => {
+                const isEditable = userData?._id === obj.user._id;
+
+                return (
+                  <div className={styles.item}>
+                    <img
+                      className={styles.news__img}
+                      src={`${config.API_BASE_URL}${obj.imageURL}`}
+                      alt=""
+                    />
+                    <Link to={`/news/${obj._id}`} key={index}>
+                      <h4 className={styles.news__date}>{formatDate(obj.createdAt)}</h4>
+                      <h2 className={styles.news__title}>{obj.title} </h2>{' '}
+                    </Link>
+                    {isEditable && (
+                      <div className={styles.editButtons}>
+                        <Link to={`/news/${obj._id}/edit`}>
+                          <GrEdit />
+                        </Link>
+                        <BsFillTrashFill onClick={() => onClickRemove(obj._id)} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
-        <button>Все новости</button>
+            {location.pathname === '/' && (
+              <Link to="/news">
+                <button className={styles.button}>Все новости</button>
+              </Link>
+            )}
+          </>
+        ) : (
+          <>
+            <div className={styles.items}>
+              {[...Array(4)].map((obj, index) => {
+                return (
+                  <Stack spacing={1}>
+                    <Skeleton variant="rectangular" width="100%" height={195} />
+                    <Skeleton variant="rounded" width={80} height={12} />
+                    <Skeleton variant="rounded" width={160} height={20} />
+                  </Stack>
+                );
+              })}
+            </div>
+            {location.pathname === '/' && (
+              <>
+                <Link to="/news">
+                  <button className={styles.button}>Все новости</button>
+                </Link>
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

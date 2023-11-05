@@ -8,13 +8,17 @@ import { ReactComponent as Whatsapp } from './../../images/soical-svg/whatsapp.s
 import { ReactComponent as Youtube } from './../../images/soical-svg/youtube.svg';
 import { ReactComponent as Telegram } from './../../images/soical-svg/telegram.svg';
 
-export const Header = () => {
+export const Header = ({ scrollRef }) => {
   const location = useLocation();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const handleClick = () => {
     setMenuOpen(!isMenuOpen);
+  };
+
+  const scrollToElement = () => {
+    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   // const dropownClick = (e) => {
@@ -59,7 +63,9 @@ export const Header = () => {
               <a className={styles.phone} href="tel:+77273987256">
                 +7 (727) 398-72-56{' '}
               </a>
-              <button className={styles.button__consultation}>Получить консультацию</button>
+              <button className={styles.button__consultation} onClick={() => scrollToElement()}>
+                Получить консультацию
+              </button>
               <a href="#">RU</a>
             </div>
           </div>
@@ -144,23 +150,6 @@ export const Header = () => {
                       Контакты
                     </Link>
                     <a href="https://tarlan-kids.kz/index.php/ru/">Детский сад</a>
-                  </div>
-
-                  <div className={styles.block2}>
-                    {/* <Link to="/add-post">
-                      <button className={styles.block2__write}>
-                        Написать статью
-                      </button>
-                    </Link>
-
-                    <button className={styles.block2__log_out}>Выйти</button> */}
-
-                    <Link to="/login">
-                      <button className={styles.block2__log_in}>Войти</button>
-                    </Link>
-                    <Link to="/register">
-                      <button className={styles.block2__sign_in}>Создать аккаунт</button>
-                    </Link>
                   </div>
                 </div>
               </div>

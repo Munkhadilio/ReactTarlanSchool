@@ -1,13 +1,25 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import logo from './../../images/logo.png';
+import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 import { ReactComponent as Mail } from './../../images/soical-svg/mail.svg';
 import { ReactComponent as Instagram } from './../../images/soical-svg/instagram.svg';
 import { ReactComponent as Whatsapp } from './../../images/soical-svg/whatsapp.svg';
 import { ReactComponent as Youtube } from './../../images/soical-svg/youtube.svg';
 import { ReactComponent as Telegram } from './../../images/soical-svg/telegram.svg';
+import { logout, userDetails, userDetailsBoolean } from '../../redux/slices/auth';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Footer = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(userDetailsBoolean);
+
+  const onClickLogout = () => {
+    dispatch(logout());
+    Cookies.remove('accessToken');
+  };
+
   return (
     <footer className={styles.root}>
       <div className="container">
@@ -40,28 +52,55 @@ export const Footer = () => {
               Республика Казахстан, г. Алматы, мкр «Каргалы» ул. Редько, д.7
             </div>
             <div className={styles.mail}>sicbaiterek@mail.ru</div>
-            <div className={styles.auth}>Панель администратора</div>
+            {isAuth ? (
+              ''
+            ) : (
+              <Link to="/login" className={styles.auth}>
+                Панель администратора
+              </Link>
+            )}
+            {isAuth ? (
+              <>
+                <Link to="/add-post" className={styles.auth}>
+                  Написать статью
+                </Link>
+
+                <button className={styles.log__out} onClick={() => onClickLogout()}>
+                  Выйти
+                </button>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
 
           <div className={styles.block2}>
             <h1 className={styles.title}>Контакты</h1>
             <div className={styles.items}>
               <div className={styles.name}>Приемная</div>
-              <div className={styles.num}>+7 (727) 398-72-56 </div>
+              <a className={styles.num} href="tel:+77273987256">
+                +7 (727) 398-72-56
+              </a>
             </div>
             <div className={styles.items}>
               <div className={styles.name}>Приемная</div>
-              <div className={styles.num}>+7 (727) 221-10-82</div>
+              <a className={styles.num} href="tel:+77272211082">
+                +7 (727) 221-10-82
+              </a>
             </div>
             <div className={styles.items}>
               <div className={styles.name}>
                 Ким Игорь Леонидович, Генеральный Директор МШЛ "Байтерек"
               </div>
-              <div className={styles.num}>+7 (701) 515-72-60</div>
+              <a className={styles.num} href="tel:+77015157260">
+                +7 (701) 515-72-60
+              </a>
             </div>
             <div className={styles.items}>
               <div className={styles.name}>Богаскулова Салиха Исламбековна, Зам. Ген Директора</div>
-              <div className={styles.num}>+7 (777) 181 2207</div>
+              <a className={styles.num} href="tel:+77771812207">
+                +7 (777) 181 2207
+              </a>
             </div>
           </div>
 

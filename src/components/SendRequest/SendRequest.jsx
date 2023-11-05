@@ -10,7 +10,14 @@ export const SendRequest = ({ scrollRef }) => {
   });
 
   const scrollToElement = () => {
-    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    const element = scrollRef.current;
+
+    if (element) {
+      const elementRect = element.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.scrollY;
+      const middle = absoluteElementTop - window.innerHeight / 2;
+      window.scrollTo({ top: middle, behavior: 'smooth' });
+    }
   };
 
   return (

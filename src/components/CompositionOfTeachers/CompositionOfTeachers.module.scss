@@ -6,21 +6,35 @@
   .link__all {
     text-decoration: none;
   }
-  .button_all {
-    color: #27205d;
-    text-align: center;
-    font-family: 'Roboto';
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 5px;
-    border: 1px solid #000;
-    background: #fff;
-    display: flex;
-    width: 208px;
-    height: 42px;
-    justify-content: center;
-    align-items: center;
-    margin: 30px auto 0 auto;
+  a {
+    text-decoration: none;
+    .button_all {
+      color: #27205d;
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 5px;
+      border: 1px solid #27205d;
+      background: #fff;
+      display: flex;
+      width: 250px;
+      height: 51px;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto 0 auto;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+
+      &:hover {
+        color: #fff;
+        background: #27205d;
+        a {
+          color: #fff;
+        }
+      }
+    }
   }
   .title {
     @include title;

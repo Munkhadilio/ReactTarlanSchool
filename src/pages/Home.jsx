@@ -9,8 +9,7 @@ import { SendRequest } from './../components/SendRequest/SendRequest';
 import { CompositionOfTeachers } from './../components/CompositionOfTeachers/CompositionOfTeachers';
 import { SchoolEnglish } from './../components/SchoolEnglish/SchoolEnglish';
 
-export const Home = () => {
-  const scrollRef = useRef();
+export const Home = ({ scrollRef }) => {
   // вкладывается в переменную о местоположение DOM
   return (
     <div>

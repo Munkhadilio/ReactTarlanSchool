@@ -125,6 +125,112 @@ table {
   border-spacing: 0;
 }
 
+/* Восстановление стандартных стилей для элементов Markdown */
+.markdown_container h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+}
+
+.markdown_container h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.83em 0;
+}
+
+.markdown_container h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+.markdown_container h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1.33em 0;
+}
+
+.markdown_container h5 {
+  font-size: 0.83em;
+  font-weight: bold;
+  margin: 1.67em 0;
+}
+
+.markdown_container h6 {
+  font-size: 0.67em;
+  font-weight: bold;
+  margin: 2.33em 0;
+}
+
+.markdown_container p {
+  margin: 1em 0;
+  line-height: 1.5;
+}
+
+.markdown_container strong {
+  font-weight: 700;
+}
+
+.markdown_container ul,
+.markdown_container ol {
+  margin: 1em 0;
+  padding-left: 2em;
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.markdown_container li {
+  margin: 0.5em 0;
+  &:marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+  }
+}
+
+.markdown_container a {
+  text-decoration: underline;
+  color: #0074d9; /* Пример цвета ссылки */
+}
+/* Восстановление стандартных стилей для элементов Markdown (продолжение) */
+.markdown_container blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 2px solid #ccc; /* Пример цвета левой грани цитаты */
+}
+
+.markdown_container pre {
+  margin: 1em 0;
+  padding: 0.5em;
+  background: #f4f4f4; /* Пример фона для блока кода */
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+.markdown_container code {
+  font-family: monospace; /* Использование моноширинного шрифта для кода */
+  background: #f4f4f4; /* Пример фона для кода внутри блока кода */
+  padding: 0.2em;
+  border: 1px solid #ccc;
+}
+
+.markdown_container img {
+  max-width: 100%; /* Ограничение ширины изображения по размеру контейнера */
+  height: auto; /* Сохранение соотношения сторон изображения */
+}
+
+/* и так далее для других элементов Markdown */
+
+/* и так далее для других элементов Markdown */
+
 body {
   font-family: 'Roboto';
   background: #ffffff;
