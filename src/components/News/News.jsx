@@ -49,13 +49,13 @@ export const News = () => {
               {posts.items.slice(0, 4).map((obj, index) => {
                 const isEditable = userData?._id === obj.user._id;
                 return (
-                  <div className={styles.item}>
+                  <div className={styles.item} key={index}>
                     <img
                       className={styles.news__img}
                       src={`${config.API_BASE_URL}${obj.imageURL}`}
                       alt=""
                     />
-                    <Link to={`/news/${obj._id}`} key={index}>
+                    <Link to={`/news/${obj._id}`}>
                       <h4 className={styles.news__date}>{formatDate(obj.createdAt)}</h4>
                       <h2 className={styles.news__title}>{obj.title} </h2>{' '}
                     </Link>
@@ -82,7 +82,7 @@ export const News = () => {
             <div className={styles.items}>
               {[...Array(4)].map((obj, index) => {
                 return (
-                  <Stack spacing={1}>
+                  <Stack spacing={1} key={index}>
                     <Skeleton variant="rectangular" width="100%" height={195} />
                     <Skeleton variant="rounded" width={80} height={12} />
                     <Skeleton variant="rounded" width={160} height={20} />

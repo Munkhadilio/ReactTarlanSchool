@@ -262,37 +262,60 @@ export const CompositionOfTeachers = () => {
 
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={toBeginning}>
-      {!selectedTeacher ? (
-        <div className="container">
-          <h1 className={styles.title}>Наши преподаватели</h1>
-          <div className={styles.first__items} ref={ref}>
-            <div
-              className={styles.first__item}
-              onClick={() => {
-                handleTeacherClick(directors[0]);
-                scrollToBeginning();
-              }}>
-              <img src={importedImages[0]} alt="" />
-              <h3 className={styles.name}>{directors[0].name}</h3>
-              <h3 className={styles.role}>{directors[0].role}</h3>
-              <h3 className={styles.additionalInfo}>{directors[0].additionalInfo}</h3>
+      <div ref={ref}>
+        {!selectedTeacher ? (
+          <div className="container">
+            <h1 className={styles.title}>Наши преподаватели</h1>
+            <div className={styles.first__items}>
+              <div
+                className={styles.first__item}
+                onClick={() => {
+                  handleTeacherClick(directors[0]);
+                  scrollToBeginning();
+                }}>
+                <img src={importedImages[0]} alt="" />
+                <h3 className={styles.name}>{directors[0].name}</h3>
+                <h3 className={styles.role}>{directors[0].role}</h3>
+                <h3 className={styles.additionalInfo}>{directors[0].additionalInfo}</h3>
+              </div>
+              <div
+                className={styles.first__item}
+                onClick={() => {
+                  handleTeacherClick(directors[1]);
+                  scrollToBeginning();
+                }}>
+                <img src={importedImages[1]} alt="" />
+                <h3 className={styles.name}>{directors[1].name}</h3>
+                <h3 className={styles.role}>{directors[1].role}</h3>
+                <h3 className={styles.additionalInfo}>{directors[1].additionalInfo}</h3>
+              </div>
             </div>
-            <div
-              className={styles.first__item}
-              onClick={() => {
-                handleTeacherClick(directors[1]);
-                scrollToBeginning();
-              }}>
-              <img src={importedImages[1]} alt="" />
-              <h3 className={styles.name}>{directors[1].name}</h3>
-              <h3 className={styles.role}>{directors[1].role}</h3>
-              <h3 className={styles.additionalInfo}>{directors[1].additionalInfo}</h3>
-            </div>
-          </div>
-          {location.pathname === '/' && (
-            <>
+            {location.pathname === '/' && (
+              <>
+                <div className={styles.items}>
+                  {teachers.slice(0, 8).map((data, i) => (
+                    <div
+                      className={styles.item}
+                      key={i}
+                      onClick={() => {
+                        handleTeacherClick(data);
+                        scrollToBeginning();
+                      }}>
+                      <img src={data.img} alt="" />
+                      <h3 className={styles.name}>{data.name}</h3>
+                      <h3 className={styles.role}>{data.role}</h3>
+                      <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
+                    </div>
+                  ))}
+                </div>
+                <Link className={styles.link__all} to="/teachers">
+                  <button className={styles.button_all}>Все учителя</button>
+                </Link>
+              </>
+            )}
+            {location.pathname === '/teachers' && (
               <div className={styles.items}>
-                {teachers.slice(0, 8).map((data, i) => (
+                {teachers.map((data, i) => (
                   <div
                     className={styles.item}
                     key={i}
@@ -307,49 +330,28 @@ export const CompositionOfTeachers = () => {
                   </div>
                 ))}
               </div>
-              <Link className={styles.link__all} to="/teachers">
-                <button className={styles.button_all}>Все учителя</button>
-              </Link>
-            </>
-          )}
-          {location.pathname === '/teachers' && (
-            <div className={styles.items}>
-              {teachers.map((data, i) => (
-                <div
-                  className={styles.item}
-                  key={i}
-                  onClick={() => {
-                    handleTeacherClick(data);
-                    scrollToBeginning();
-                  }}>
-                  <img src={data.img} alt="" />
-                  <h3 className={styles.name}>{data.name}</h3>
-                  <h3 className={styles.role}>{data.role}</h3>
-                  <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ) : (
-        ''
-      )}
-      {selectedTeacher && (
-        <div className="container">
-          <h1 className={styles.title}>Наши преподаватели</h1>
-          <div className={styles.fullPost}>
-            <img className={styles.fullPost__teacherIMG} src={selectedTeacher.img} alt="" />
-            <div className={styles.fullPost__info}>
-              <h3 className={styles.fullPost__info__name}>{selectedTeacher.name}</h3>
-              <h3 className={styles.fullPost__info__role}>{selectedTeacher.role}</h3>
-              <h3 className={styles.fullPost__info__additionalInfo}>
-                {selectedTeacher.additionalInfo}
-              </h3>
-            </div>
-            <ImCross onClick={() => setSelectedTeacher('')} />
+            )}
           </div>
-        </div>
-      )}
+        ) : (
+          ''
+        )}
+        {selectedTeacher && (
+          <div className="container">
+            <h1 className={styles.title}>Наши преподаватели</h1>
+            <div className={styles.fullPost}>
+              <img className={styles.fullPost__teacherIMG} src={selectedTeacher.img} alt="" />
+              <div className={styles.fullPost__info}>
+                <h3 className={styles.fullPost__info__name}>{selectedTeacher.name}</h3>
+                <h3 className={styles.fullPost__info__role}>{selectedTeacher.role}</h3>
+                <h3 className={styles.fullPost__info__additionalInfo}>
+                  {selectedTeacher.additionalInfo}
+                </h3>
+              </div>
+              <ImCross onClick={() => setSelectedTeacher('')} />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
