@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import logo from './../../images/logo.png';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ReactComponent as Mail } from './../../images/soical-svg/mail.svg';
 import { ReactComponent as Instagram } from './../../images/soical-svg/instagram.svg';
 import { ReactComponent as Whatsapp } from './../../images/soical-svg/whatsapp.svg';
@@ -9,6 +9,7 @@ import { ReactComponent as Youtube } from './../../images/soical-svg/youtube.svg
 import { ReactComponent as Telegram } from './../../images/soical-svg/telegram.svg';
 
 export const Header = ({ scrollRef }) => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -17,7 +18,8 @@ export const Header = ({ scrollRef }) => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const scrollToElement = () => {
+  const scrollToElement = async () => {
+    await navigate('/');
     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -56,9 +58,9 @@ export const Header = ({ scrollRef }) => {
                 <a href="#">
                   <Youtube className={styles.social__icons} />
                 </a>
-                <a href="#">
+                {/* <a href="#">
                   <Telegram className={styles.social__icons} />
-                </a>
+                </a> */}
               </div>
               <a className={styles.phone} href="tel:+77273987256">
                 +7 (727) 398-72-56{' '}

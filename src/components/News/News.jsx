@@ -48,7 +48,6 @@ export const News = () => {
             <div className={styles.items}>
               {posts.items.slice(0, 4).map((obj, index) => {
                 const isEditable = userData?._id === obj.user._id;
-
                 return (
                   <div className={styles.item}>
                     <img

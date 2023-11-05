@@ -53,6 +53,7 @@
       border: 1px solid #dedede;
       padding: 10px;
       width: 350px;
+      cursor: pointer;
       img {
         width: 350px;
         height: 350px;
@@ -85,6 +86,7 @@
     gap: 20px;
     margin-top: 20px;
     .item {
+      cursor: pointer;
       background-color: #ffffff;
       border-radius: 10px;
       border: 1px solid #dedede;
@@ -112,6 +114,53 @@
       }
       .additionalInfo {
         display: none;
+      }
+    }
+  }
+  .fullPost {
+    margin-top: 65px;
+    display: grid;
+    grid-template-columns: minmax(320px, 560px) 1fr;
+    gap: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #dedede;
+    padding: 10px;
+    position: relative;
+    svg {
+      position: absolute;
+      right: inherit;
+      right: 15px;
+      top: 15px;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+    &__teacherIMG {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      width: 560px;
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &__name {
+        font-family: 'Roboto';
+        font-size: 40px;
+        word-wrap: break-word;
+        color: #27205d;
+      }
+      &__role {
+        font-family: 'Roboto';
+        font-size: 20px;
+        word-wrap: break-word;
+      }
+      &__additionalInfo {
+        font-family: 'Roboto';
+        font-size: 20px;
+        word-wrap: break-word;
       }
     }
   }

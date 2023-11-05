@@ -44,9 +44,9 @@ export const Footer = () => {
               <a href="#">
                 <Youtube className={styles.social__icons} />
               </a>
-              <a href="#">
+              {/* <a href="#">
                 <Telegram className={styles.social__icons} />
-              </a>
+              </a> */}
             </div>
             <div className={styles.address}>
               Республика Казахстан, г. Алматы, мкр «Каргалы» ул. Редько, д.7
@@ -105,12 +105,22 @@ export const Footer = () => {
           </div>
 
           <div className={styles.block3}>
-            <h1 className={styles.title}>Меню</h1>
-            <h3 className={styles.section}>О школе</h3>
-            <h3 className={styles.section}>Поступление</h3>
-            <h3 className={styles.section}>Школьная жизнь</h3>
-            <h3 className={styles.section}>Контакты</h3>
-            <h3 className={styles.section}>Детский сад</h3>
+            <h1 className={styles.title}>Меню</h1>{' '}
+            <Link to="/" onClick={window.scrollTo(0, 0)} className={styles.section}>
+              Главная
+            </Link>
+            <Link to="/about" className={styles.section}>
+              О школе
+            </Link>
+            <Link to="/admission" className={styles.section}>
+              Поступление
+            </Link>
+            <Link to="/contacts" className={styles.section}>
+              Контакты
+            </Link>
+            <Link to="" className={styles.section}>
+              Детский сад
+            </Link>
           </div>
 
           <div className={styles.block4}>
