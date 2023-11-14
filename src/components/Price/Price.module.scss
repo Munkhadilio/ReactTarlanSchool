@@ -1,0 +1,8 @@
+@import './../../sass/base/mixins';
+
+.root {
+  margin-top: 65px;
+  .title {
+    @include title;
+  }
+}

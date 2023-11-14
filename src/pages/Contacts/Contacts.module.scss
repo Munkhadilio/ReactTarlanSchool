@@ -1,6 +1,7 @@
-@import './../sass/base/mixins';
+@import './../../sass/base/mixins';
 
 .root {
+  @include animation_speed;
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -48,6 +49,10 @@
   }
 }
 
+.visible {
+  @include visible;
+}
+
 @media (max-width: 1200px) {
   .root {
     .container {
@@ -74,6 +79,8 @@
         font-size: 30px;
       }
       .wrapper {
+        margin-top: 30px;
+        gap: 30px;
         .contacts {
           gap: 15px;
         }
@@ -93,7 +100,6 @@
       .wrapper {
         display: flex;
         flex-direction: column;
-        gap: 50px;
         .contacts {
           gap: 15px;
         }

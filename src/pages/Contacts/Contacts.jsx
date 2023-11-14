@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './Contacts.module.scss';
+import { useInView } from 'react-intersection-observer';
 
 export const Contacts = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Опция, чтобы анимация сработала только один раз
+  });
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className={styles.container}>
         <h1 className={styles.title}>Адрес и контакты</h1>
         <div className={styles.wrapper}>
@@ -53,9 +57,9 @@ export const Contacts = () => {
               width="100%"
               height="100%"
               style={{ border: '0' }} // Используйте объект стилей
-              allowfullscreen=""
+              allowFullScreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+              referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>

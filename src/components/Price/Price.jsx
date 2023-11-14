@@ -1,11 +1,12 @@
 import React from 'react';
-import styles from './Contacts.module.scss';
+import styles from './Price.module.scss';
 
-export const Admission = () => {
+export const Price = () => {
   return (
     <div className={styles.root}>
       <div className="container">
-        <h2>Поступление</h2>
+        <h2 className={styles.title}>Цены</h2>
+        
       </div>
     </div>
   );

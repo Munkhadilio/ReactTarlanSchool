@@ -2,6 +2,7 @@
 
 .root {
   margin-top: 100px;
+  @include animation_speed;
 
   .title {
     @include title;
@@ -40,7 +41,9 @@
     }
   }
 }
-
+.visible {
+  @include visible;
+}
 @media (max-width: 1200px) {
 }
 

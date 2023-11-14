@@ -100,7 +100,7 @@ export const Header = ({ scrollRef }) => {
               </div>
             </div> */}
             <Link className={''} to="/admission">
-              Поступление
+              Правила поступления
             </Link>
             <Link className={''} to="/contacts">
               Контакты
@@ -146,7 +146,7 @@ export const Header = ({ scrollRef }) => {
                       О школе
                     </Link>
                     <Link className={''} to="/admission">
-                      Поступление
+                      Правила поступления
                     </Link>
                     <Link className={''} to="/contacts">
                       Контакты

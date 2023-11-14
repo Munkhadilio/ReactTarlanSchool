@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './Director.module.scss';
+import { useInView } from 'react-intersection-observer';
 import director from './../../images/director1.jpg';
 
 export const Director = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Опция, чтобы анимация сработала только один раз
+  });
+
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <h1 className={styles.title}>Обращение директора</h1>
         <div className={styles.wrapper}>
