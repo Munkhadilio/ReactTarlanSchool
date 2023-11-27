@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Admisson.module.scss';
 import { Contacts } from './../Contacts/Contacts';
-import { Price } from '../../components/Price/Price';
 export const Admission = () => {
   return (
     <>

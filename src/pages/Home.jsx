@@ -8,6 +8,8 @@ import { QwForm } from './../components/QwForm/QwForm';
 import { SendRequest } from './../components/SendRequest/SendRequest';
 import { CompositionOfTeachers } from './../components/CompositionOfTeachers/CompositionOfTeachers';
 import { SchoolEnglish } from './../components/SchoolEnglish/SchoolEnglish';
+import { Contacts } from './../pages/Contacts/Contacts';
+import { CalendarComponent } from '../components/CalendarComponent/CalendarComponent';
 
 export const Home = ({ scrollRef }) => {
   // вкладывается в переменную о местоположение DOM
@@ -21,6 +23,8 @@ export const Home = ({ scrollRef }) => {
       <Benefits />
       <EduConcept />
       <CompositionOfTeachers />
+      <CalendarComponent />
+      <Contacts />
       <QwForm scrollRef={scrollRef} />
     </div>
   );

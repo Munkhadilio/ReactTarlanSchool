@@ -76,36 +76,48 @@ export const Footer = () => {
 
           <div className={styles.block2}>
             <h1 className={styles.title}>Контакты</h1>
-            <div className={styles.items}>
+            <div className={styles.c__item}>
               <div className={styles.name}>Приемная</div>
               <a className={styles.num} href="tel:+77273987256">
                 +7 (727) 398-72-56
               </a>
             </div>
-            <div className={styles.items}>
+            <div className={styles.c__item}>
               <div className={styles.name}>Приемная</div>
               <a className={styles.num} href="tel:+77272211082">
                 +7 (727) 221-10-82
               </a>
             </div>
-            <div className={styles.items}>
-              <div className={styles.name}>
-                Ким Игорь Леонидович, Генеральный Директор МШЛ "Байтерек"
-              </div>
-              <a className={styles.num} href="tel:+77015157260">
-                +7 (701) 515-72-60
-              </a>
-            </div>
-            <div className={styles.items}>
+            <div className={styles.c__item}>
               <div className={styles.name}>Богаскулова Салиха Исламбековна, Зам. Ген Директора</div>
               <a className={styles.num} href="tel:+77771812207">
-                +7 (777) 181 2207
+                +7 (777) 181-22-07
+              </a>
+            </div>
+            <div className={styles.c__item}>
+              <div className={styles.name}>Ткаченко Елена Васильевна, Завуч по ВР</div>
+              <a className={styles.num} href="tel:+77072542168">
+                +7 (707) 254-21-68
+              </a>
+            </div>
+            <div className={styles.c__item}>
+              <div className={styles.name}>Кабинет завучей</div>
+              <a className={styles.num} href="tel:+77272211082">
+                +7 (727) 221-10-82
+              </a>
+            </div>
+            <div className={styles.c__item}>
+              <div className={styles.name}>
+                Адеми Айдаркызы Жамбылова, ассистент по работе с клиентами
+              </div>
+              <a className={styles.num} href="tel:+77778401585">
+                +7 (777) 840-15-85
               </a>
             </div>
           </div>
 
           <div className={styles.block3}>
-            <h1 className={styles.title}>Меню</h1>{' '}
+            <h1 className={styles.title}>Меню</h1>
             <Link to="/" onClick={window.scrollTo(0, 0)} className={styles.section}>
               Главная
             </Link>

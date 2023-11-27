@@ -9,6 +9,10 @@
     padding: 0 8px 0 8px;
     h1 {
       @include title;
+      line-height: 48px;
+      span {
+        color: #e31e24;
+      }
     }
 
     .text {

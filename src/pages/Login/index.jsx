@@ -29,11 +29,11 @@ export const Login = () => {
 
     if (!data.payload) {
       alert('Не удалось авторизоваться');
-    }
-
-    if ('accessToken' in data.payload) {
-      const accessToken = data.payload.accessToken;
-      Cookies.set('accessToken', accessToken, { expires: 7 });
+    } else {
+      if ('accessToken' in data.payload) {
+        const accessToken = data.payload.accessToken;
+        Cookies.set('accessToken', accessToken, { expires: 7 });
+      }
     }
   };
 

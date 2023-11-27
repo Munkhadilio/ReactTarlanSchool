@@ -4,12 +4,9 @@ import 'blaze-slider/dist/blaze.css';
 import { useInView } from 'react-intersection-observer';
 import styles from './GallerySliderV2.module.scss';
 
-import img1 from './../../images/slickdemo/2061261.jpg';
-import img2 from './../../images/slickdemo/DemoImg.png';
-import img3 from './../../images/slickdemo/high-up-3840×2160.jpg';
-import img4 from './../../images/slickdemo/macos-big-sur-stock-night-lone-tree-sedimentary-rocks-1920x1080-3776.jpg';
-import img5 from './../../images/slickdemo/ugdnffnc61m61.png';
-import img6 from './../../images/slickdemo/wallpapersden.com_windows-11-hd-gradient_3072x1728.jpg';
+import img1 from './../../images/slickdemo/img__slider_1.jpg';
+import img2 from './../../images/slickdemo/img__slider_2.jpg';
+import img3 from './../../images/slickdemo/img__slider_3.jpg';
 
 function useBlazeSlider(config) {
   const sliderRef = React.useRef();
@@ -30,7 +27,7 @@ export const GallerySliderV2 = () => {
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
 
-  const images = [img2, img2, img2, img2, img2];
+  const images = [img1, img2, img3];
 
   const elRef = useBlazeSlider({
     all: {

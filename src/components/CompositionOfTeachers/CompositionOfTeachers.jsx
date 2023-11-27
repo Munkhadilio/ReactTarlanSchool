@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import styles from './CompositionOfTeachers.module.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { ImCross } from 'react-icons/im';
+
 export const CompositionOfTeachers = () => {
   const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const navigate = useNavigate();
   const location = useLocation();
   const importedImages = [];
   const toBeginning = useRef(null);
@@ -308,9 +310,10 @@ export const CompositionOfTeachers = () => {
                     </div>
                   ))}
                 </div>
-                <Link className={styles.link__all} to="/teachers">
-                  <button className={styles.button_all}>Все учителя</button>
-                </Link>
+
+                <button className={styles.button_all} onClick={() => navigate('/teachers')}>
+                  Все учителя
+                </button>
               </>
             )}
             {location.pathname === '/teachers' && (

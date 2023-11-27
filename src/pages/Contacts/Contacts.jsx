@@ -35,13 +35,13 @@ export const Contacts = () => {
               <a className={styles.num} href="tel:+77072542168">
                 +7 (707) 254-21-68
               </a>
-            </div>{' '}
+            </div>
             <div className={styles.items}>
               <div className={styles.name}>Кабинет завучей</div>
               <a className={styles.num} href="tel:+77272211082">
                 +7 (727) 221-10-82
               </a>
-            </div>{' '}
+            </div>
             <div className={styles.items}>
               <div className={styles.name}>
                 Адеми Айдаркызы Жамбылова, ассистент по работе с клиентами
@@ -58,7 +58,6 @@ export const Contacts = () => {
               height="100%"
               style={{ border: '0' }} // Используйте объект стилей
               allowFullScreen=""
-              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>

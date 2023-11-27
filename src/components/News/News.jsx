@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { fetchPosts, fetchRemovePost } from './../../redux/slices/posts';
 import { useDispatch, useSelector } from 'react-redux';
 import config from '../../config';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { userDetails } from '../../redux/slices/auth';
 import { GrEdit } from 'react-icons/gr';
 import { BsFillTrashFill } from 'react-icons/bs';
@@ -15,6 +15,7 @@ import { BsFillTrashFill } from 'react-icons/bs';
 export const News = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
   const userData = useSelector(userDetails);
 
   React.useEffect(() => {
@@ -72,9 +73,9 @@ export const News = () => {
               })}
             </div>
             {location.pathname === '/' && (
-              <Link to="/news">
-                <button className={styles.button}>Все новости</button>
-              </Link>
+              <button className={styles.button} onClick={() => navigate('/news')}>
+                Все новости
+              </button>
             )}
           </>
         ) : (

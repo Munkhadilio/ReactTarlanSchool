@@ -5,8 +5,8 @@ import { News } from './../components/News/News';
 export const About = () => {
   return (
     <div>
-      <Director />
       <AboutSchool />
+      <Director />
       <News />
     </div>
   );

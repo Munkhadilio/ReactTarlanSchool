@@ -8,9 +8,7 @@ import './sass/base/fontsRoboto.css';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Admission } from './pages/Admission/Admission';
-import { SchoolLife } from './pages/SchoolLife';
 import { Contacts } from './pages/Contacts/Contacts';
-import { Kindergarten } from './pages/Kindergarten';
 import { Login } from './pages/Login/index';
 import { AddPost } from './pages/AddPost';
 import { useEffect, useRef } from 'react';
@@ -41,9 +39,7 @@ function App() {
         <Route path="/news/:id" element={<FullPost />}></Route>
         <Route path="/news/:id/edit" element={<AddPost />}></Route>
         <Route path="/admission" element={<Admission />}></Route>
-        <Route path="/schoollife" element={<SchoolLife />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
-        <Route path="/kindergarten" element={<Kindergarten />}></Route>
         <Route path="/teachers" element={<CompositionOfTeachers />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/add-post" element={<AddPost />}></Route>

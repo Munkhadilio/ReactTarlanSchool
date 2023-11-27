@@ -7,12 +7,18 @@ import { ReactComponent as Instagram } from './../../images/soical-svg/instagram
 import { ReactComponent as Whatsapp } from './../../images/soical-svg/whatsapp.svg';
 import { ReactComponent as Youtube } from './../../images/soical-svg/youtube.svg';
 import { ReactComponent as Telegram } from './../../images/soical-svg/telegram.svg';
+import { useRef } from 'react';
 
 export const Header = ({ scrollRef }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const handleLinkClick = () => {
+    setShowDropdown(false); // Установка состояния на false после клика на ссылку
+  };
 
   const handleClick = () => {
     setMenuOpen(!isMenuOpen);
@@ -23,15 +29,29 @@ export const Header = ({ scrollRef }) => {
     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // const dropownClick = (e) => {
-  //   setDropdownOpen(!isDropdownOpen);
-  // };
-
   useEffect(() => {
     // Установить isMenuOpen в false при каждом изменении маршрута
     setMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowDropdown(false);
+    }, 1000);
+  };
   return (
     <>
       {/* Компьютерная версия */}
@@ -71,34 +91,34 @@ export const Header = ({ scrollRef }) => {
               <a href="#">RU</a>
             </div>
           </div>
-          {/* <div className={styles.line}></div> */}
+          <div className={styles.dash}></div>
           <div className={styles.nav}>
             <Link className={''} to="/">
               Главная
-            </Link>{' '}
-            <Link className={''} to="/about">
-              О школе
             </Link>
-            {/* <div className={styles.dropdown}>
-              <div className={styles.dropbtn} onClick={dropownClick}>
-                О школе
-                <div className={styles.drowdown__arrow}></div>
-              </div>
+            <div
+              className={styles.dropdown}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>
+              О школе
               <div
-                className={`${styles.dropdown__content} ${
-                  isDropdownOpen ? styles.dropdown__content__active : ''
-                } `}>
-                <Link className={''} to="/about">
-                  О нас
-                </Link>
-                <Link className={''} to="/about">
-                  О школе
-                </Link>
-                <Link className={''} to="/about">
-                  О школе
-                </Link>
-              </div>
-            </div> */}
+                className={`${styles.dropdown__arrow} ${
+                  showDropdown ? styles.dropdown__arrow__active : ''
+                }`}></div>
+              {showDropdown && (
+                <div className={styles.dropdown__content}>
+                  <Link className={''} to="/about" onClick={handleLinkClick}>
+                    О нас
+                  </Link>
+                  <Link className={''} to="/teachers" onClick={handleLinkClick}>
+                    Преподаватели
+                  </Link>
+                  <Link className={''} to="/news" onClick={handleLinkClick}>
+                    Новости
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link className={''} to="/admission">
               Правила поступления
             </Link>
@@ -144,6 +164,12 @@ export const Header = ({ scrollRef }) => {
                     </Link>
                     <Link className={''} to="/about">
                       О школе
+                    </Link>
+                    <Link className={''} to="/teachers">
+                      Преподаватели
+                    </Link>
+                    <Link className={''} to="/news">
+                      Новости
                     </Link>
                     <Link className={''} to="/admission">
                       Правила поступления
