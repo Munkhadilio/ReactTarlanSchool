@@ -12,7 +12,7 @@ export const EduConcept = () => {
 
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
-      <div className={styles.container}>
+      <div className="container">
         <h1 className={styles.subtitle}>Все ступени образования: от детского сада до 11 класса.</h1>
         <h2 className={styles.title}>Образовательная концепция</h2>
         <div className={styles.items}>

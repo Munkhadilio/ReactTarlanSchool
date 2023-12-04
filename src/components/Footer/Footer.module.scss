@@ -1,6 +1,8 @@
+@import './../../sass/base/palette';
+
 .root {
   margin-top: 100px;
-  background-color: #27205d;
+  background-color: $block-color;
   .wrapper {
     display: flex;
     padding: 55px 0 55px 0;
@@ -184,7 +186,6 @@
 @media (max-width: 992px) {
   .root {
     margin-top: 65px;
-    background-color: #27205d;
     min-height: 432px;
     .wrapper {
       display: grid;
@@ -344,7 +345,6 @@
 @media (max-width: 576px) {
   .root {
     margin-top: 65px;
-    background-color: #27205d;
     min-height: 432px;
     .wrapper {
       display: grid;

@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './Admisson.module.scss';
 import { Contacts } from './../Contacts/Contacts';
+import { useInView } from 'react-intersection-observer';
 export const Admission = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Опция, чтобы анимация сработала только один раз
+  });
+
   return (
     <>
-      <div className={styles.root}>
+      <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
         <div className="container">
           <h2 className={styles.title}>Правила поступления</h2>
           <div className={styles.block1}>

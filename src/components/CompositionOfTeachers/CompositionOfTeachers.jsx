@@ -311,7 +311,7 @@ export const CompositionOfTeachers = () => {
                   ))}
                 </div>
 
-                <button className={styles.button_all} onClick={() => navigate('/teachers')}>
+                <button className={styles.button__all} onClick={() => navigate('/teachers')}>
                   Все учителя
                 </button>
               </>

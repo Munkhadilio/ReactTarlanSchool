@@ -18,7 +18,6 @@ export const AddPost = () => {
   const [isLoading, setLoading] = React.useState(false);
   const [text, setText] = React.useState('');
   const [title, setTitle] = React.useState('');
-  const [tags, setTags] = React.useState('');
   const [imageURL, setImageURL] = React.useState('');
   const inputFileRef = React.useRef(null);
   const isEditing = Boolean(id);
@@ -57,7 +56,6 @@ export const AddPost = () => {
       const fields = {
         title,
         imageURL,
-        tags,
         text,
         userRole: userData.role,
       };
@@ -78,7 +76,6 @@ export const AddPost = () => {
         .then(({ data }) => {
           setTitle(data.title);
           setImageURL(data.imageURL);
-          setTags(data.tags.join(','));
           setText(data.text);
         })
         .catch((e) => {
@@ -139,13 +136,6 @@ export const AddPost = () => {
               placeholder="Заголовок статьи..."
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-            />
-            <input
-              className={styles.tags}
-              type="text"
-              placeholder="Тэги"
-              value={tags}
-              onChange={(e) => setTags(e.target.value)}
             />
           </div>
           <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />

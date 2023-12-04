@@ -10,7 +10,7 @@ export const SchoolEnglish = () => {
 
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`}>
-      <div className={styles.container}>
+      <div className="container">
         <h2 className={styles.title} ref={ref}>
           Учебная программа в школе Тарлан
         </h2>

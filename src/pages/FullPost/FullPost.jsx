@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FullPost.module.scss';
 import { useParams } from 'react-router-dom';
+import { ReactComponent as EyeIcon } from '../../images/icons/eye.svg';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Markdown from 'react-markdown';
@@ -45,7 +46,13 @@ export const FullPost = () => {
         <div className={styles.fullPost}>
           {data ? (
             <>
-              <h4 className={styles.fullPost__createdAt}>{formattedDate}</h4>
+              <div className={styles.fullPost__info}>
+                <h4 className={styles.fullPost__info__createdAt}>{formattedDate}</h4>{' '}
+                <div className={styles.fullPost__info__viewsCount}>
+                  <EyeIcon />
+                  <span>{data.viewsCount}</span>
+                </div>
+              </div>
               <h2 className={styles.fullPost__title}>{data.title}</h2>
               <img
                 className={styles.fullPost__img}

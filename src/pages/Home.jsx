@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { AboutSchool } from './../components/AboutSchool/AboutSchool';
 import { Benefits } from './../components/Benefits/Benefits';
 import { EduConcept } from './../components/EduConcept/EduConcept';
-import { GallerySliderV2 } from './../components/GallerySliderV2/GallerySliderV2';
+import GallerySliderV2 from './../components/GallerySliderV2/GallerySliderV2';
 import { News } from './../components/News/News';
 import { QwForm } from './../components/QwForm/QwForm';
 import { SendRequest } from './../components/SendRequest/SendRequest';
@@ -10,6 +10,7 @@ import { CompositionOfTeachers } from './../components/CompositionOfTeachers/Com
 import { SchoolEnglish } from './../components/SchoolEnglish/SchoolEnglish';
 import { Contacts } from './../pages/Contacts/Contacts';
 import { CalendarComponent } from '../components/CalendarComponent/CalendarComponent';
+import Mugs from '../components/Mugs/Mugs';
 
 export const Home = ({ scrollRef }) => {
   // вкладывается в переменную о местоположение DOM
@@ -19,6 +20,7 @@ export const Home = ({ scrollRef }) => {
       <GallerySliderV2 />
       <AboutSchool />
       <News />
+      <Mugs />
       <SchoolEnglish />
       <Benefits />
       <EduConcept />

@@ -1,4 +1,5 @@
 @import '../../sass/base/mixins';
+@import '../../sass/base/palette';
 
 .root {
   margin-top: 100px;
@@ -21,7 +22,7 @@
       display: flex;
       flex-direction: column;
       &__text {
-        color: #000;
+        color: $text-color;
         text-align: justify;
         font-family: Montserrat Alternates;
         font-size: 20px;
@@ -30,7 +31,7 @@
         line-height: 149.4%; /* 32.868px */
       }
       &__name {
-        color: #000;
+        color: $text-color;
         text-align: justify;
         font-family: Montserrat Alternates;
         font-size: 20px;
@@ -67,7 +68,6 @@
         flex-direction: column;
         justify-content: space-around;
         &__text {
-          color: #000;
           text-align: justify;
           font-family: Montserrat Alternates;
           font-size: 19px;
@@ -76,7 +76,6 @@
           line-height: 116%;
         }
         &__name {
-          color: #000;
           text-align: justify;
           font-family: Montserrat Alternates;
           font-size: 19px;
@@ -109,7 +108,6 @@
         display: flex;
         flex-direction: column;
         &__text {
-          color: #000;
           text-align: justify;
           font-family: Montserrat Alternates;
           font-size: 16px;
@@ -118,7 +116,6 @@
           line-height: 149.4%; /* 32.868px */
         }
         &__name {
-          color: #000;
           text-align: justify;
           font-family: Montserrat Alternates;
           font-size: 16px;

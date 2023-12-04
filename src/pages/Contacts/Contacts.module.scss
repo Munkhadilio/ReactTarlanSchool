@@ -1,14 +1,15 @@
 @import './../../sass/base/mixins';
+@import './../../sass/base/palette';
 
 .root {
   @include animation_speed;
+  margin-top: 100px;
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px 0 20px;
     .title {
       @include title;
-      margin-top: 65px;
     }
     .wrapper {
       margin-top: 65px;
@@ -22,7 +23,7 @@
         max-width: 390px;
         .items {
           .name {
-            color: #27205d;
+            color: $text-color;
             font-family: 'Roboto';
             font-size: 20px;
             font-style: normal;
@@ -32,7 +33,7 @@
           .num {
             display: block;
             margin-top: 10px;
-            color: #000;
+            color: $text-color;
             font-family: 'Roboto';
             font-size: 20px;
             font-style: normal;
@@ -55,13 +56,13 @@
 
 @media (max-width: 1200px) {
   .root {
+    margin-top: 65px;
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px 0 20px;
       .title {
         @include title;
-        margin-top: 65px;
       }
     }
   }
@@ -69,13 +70,13 @@
 
 @media (max-width: 992px) {
   .root {
+    margin-top: 65px;
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px 0 20px;
       .title {
         @include title;
-        margin-top: 65px;
         font-size: 30px;
       }
       .wrapper {
@@ -101,7 +102,17 @@
         display: flex;
         flex-direction: column;
         .contacts {
+          margin: 0 auto;
           gap: 15px;
+          .items {
+            .name {
+              font-size: 16px;
+              line-height: 19px;
+            }
+            .num {
+              font-size: 16px;
+            }
+          }
         }
         .responsive__map {
           width: 100%;
@@ -123,6 +134,7 @@
       }
       .wrapper {
         .contacts {
+          margin: 0;
         }
         .responsive__map {
         }

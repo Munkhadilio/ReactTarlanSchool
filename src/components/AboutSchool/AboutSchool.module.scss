@@ -1,62 +1,60 @@
 @import '../../sass/base/mixins';
+@import '../../sass/base/palette';
 
 .root {
-  margin-top: 65px;
-  @include animation_speed;
-  .container {
-    max-width: 1070px;
-    margin: 0 auto;
-    padding: 0 8px 0 8px;
-    h1 {
-      @include title;
-      line-height: 48px;
-      span {
-        color: #e31e24;
-      }
-    }
+  margin: 100px auto 0 auto;
 
-    .text {
-      margin-top: 65px;
-      color: #000;
-      text-align: justify;
-      font-family: 'Montserrat Alternates';
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 149.4%; /* 32.868px */
+  @include animation_speed;
+  h1 {
+    @include title;
+    line-height: 48px;
+    span {
+      color: #e31e24;
     }
   }
-}
+  .text {
+    margin-top: 65px;
+    color: $text-color;
+    text-align: justify;
+    font-family: 'Montserrat Alternates';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 149.4%; /* 32.868px */
+  }
 
+  .youTube {
+    margin: 35px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
 .visible {
   @include visible;
 }
 
 @media (max-width: 1200px) {
+  .root {
+    .text {
+      margin-top: 30px;
+    }
+
+    .youTube {
+      margin: 35px auto 0 auto;
+      max-width: 560px;
+      gap: 20px;
+    }
+  }
 }
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 65px;
-    .container {
-      max-width: 1070px;
-      margin: 0 auto;
-      padding: 0 20px 0 20px;
-      h1 {
-        @include title;
-        font-size: 30px;
-      }
-
-      .text {
-        margin-top: 30px;
-        color: #000;
-        text-align: justify;
-        font-family: 'Montserrat Alternates';
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 149.4%;
-      }
+    margin: 65px auto 0 auto;
+    h1 {
+      @include title;
+      font-size: 30px;
+      line-height: 29px;
     }
   }
 }
@@ -66,4 +64,23 @@
 
 //Минимальная ширина телефона 320px
 @media (max-width: 576px) {
+  .root {
+    margin-top: 65px;
+    h1 {
+      @include title;
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    .text {
+      margin-top: 30px;
+      color: $text-color;
+      text-align: justify;
+      font-family: 'Montserrat Alternates';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 149.4%;
+    }
+  }
 }

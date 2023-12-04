@@ -1,11 +1,12 @@
 @import '../../sass/base/mixins';
+@import '../../sass/base/palette';
 
 .root {
   margin-top: 100px;
   @include animation_speed;
   .wrapper {
-    background-color: #27205d;
-    border-radius: 16px;
+    background-color: $block-color;
+    border-radius: 10px;
     padding: 40px 57px 37px 37px;
     display: grid;
     gap: 15px;
@@ -170,7 +171,7 @@
       .title {
         color: #fff;
         font-family: 'Roboto';
-        font-size: 36px;
+        font-size: 30px;
         font-style: normal;
         font-weight: 700;
         line-height: 43px; /* 119.444% */

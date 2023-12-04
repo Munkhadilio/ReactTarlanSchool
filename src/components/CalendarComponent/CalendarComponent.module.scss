@@ -89,7 +89,9 @@
     color: white;
   }
 }
+
 @import './../../sass/base/mixins';
+@import './../../sass/base/palette';
 
 .holidays {
   content: '';
@@ -102,20 +104,26 @@
 
 .root {
   margin-top: 100px;
+  @include animation_speed;
   .title {
     @include title;
+    @media screen and (max-width: 992px) {
+      font-size: 30px;
+    }
   }
 
   .wrapper {
     margin-top: 65px;
+    flex-wrap: wrap;
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
+    justify-content: center;
     ul {
       display: flex;
       flex-direction: column;
       gap: 15px;
       li {
-        color: #000;
+        color: $text-color;
         font-family: 'Roboto';
         font-size: 20px;
         font-style: normal;
@@ -135,9 +143,48 @@
           width: 10px;
           height: 10px;
           border-radius: 50%;
-          background-color: #271d62;
+          background-color: $main-icons-color;
         }
       }
     }
+  }
+}
+
+.visible {
+  @include visible;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .root {
+    margin-top: 65px;
+    .wrapper {
+      margin-top: 30px;
+      ul {
+        gap: 10px;
+        li {
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  :global {
+    .react-calendar {
+      max-width: 95%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
   }
 }

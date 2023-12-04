@@ -10,6 +10,7 @@ import config from '../../config';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { userDetails } from '../../redux/slices/auth';
 import { GrEdit } from 'react-icons/gr';
+import { ReactComponent as EyeIcon } from '../../images/icons/eye.svg';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 export const News = () => {
@@ -57,8 +58,14 @@ export const News = () => {
                       alt=""
                     />
                     <Link to={`/news/${obj._id}`}>
-                      <h4 className={styles.news__date}>{formatDate(obj.createdAt)}</h4>
-                      <h2 className={styles.news__title}>{obj.title} </h2>{' '}
+                      <div className={styles.news__info}>
+                        <h4 className={styles.news__info__date}>{formatDate(obj.createdAt)}</h4>
+                        <div className={styles.news__info__viewsCount}>
+                          <EyeIcon />
+                          <span>{obj.viewsCount}</span>
+                        </div>
+                      </div>
+                      <h2 className={styles.news__title}>{obj.title} </h2>
                     </Link>
                     {isEditable && (
                       <div className={styles.editButtons}>

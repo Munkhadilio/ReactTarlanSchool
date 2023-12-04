@@ -2,8 +2,14 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './CalendarComponent.module.scss';
+import { useInView } from 'react-intersection-observer';
+
 export const CalendarComponent = () => {
   const [value, onChange] = useState(new Date());
+
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Опция, чтобы анимация сработала только один раз
+  });
 
   const holidays = {
     '2023-10-30': 'Осенние каникулы',
@@ -169,15 +175,28 @@ export const CalendarComponent = () => {
 
   return (
     <div className="container">
-      <div className={styles.root}>
+      <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
         <h2 className={styles.title}>Школьные каникулы</h2>
         <div className={styles.wrapper}>
           <ul>
-            <li>Осенние каникулы: 7 дней (30 октября - 5 ноября 2023 года)</li>
-            <li>Зимние каникулы: 10 дней (29 декабря 2023 года - 7 января 2024 года)</li>
-            <li>Весенние каникулы: 11 дней (21 - 31 марта 2024 года)</li>
-            <li>Летние каникулы: 98 дней (26 мая - 31 августа 2024 года)</li>
-            <li>Дополнительные каникулы для первых классов: 7 дней (5 - 11 февраля 2024 года)</li>
+            <li>
+              Осенние каникулы: <br />7 дней (30 октября - 5 ноября 2023 года)
+            </li>
+            <li>
+              Зимние каникулы: <br />
+              10 дней (29 декабря 2023 года - 7 января 2024 года)
+            </li>
+            <li>
+              Весенние каникулы: <br />
+              11 дней (21 - 31 марта 2024 года)
+            </li>
+            <li>
+              Летние каникулы: <br />
+              98 дней (26 мая - 31 августа 2024 года)
+            </li>
+            <li>
+              Дополнительные каникулы для первых классов: <br />7 дней (5 - 11 февраля 2024 года)
+            </li>
           </ul>
           <Calendar
             onChange={onChange}

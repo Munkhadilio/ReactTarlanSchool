@@ -1,21 +1,25 @@
 @import './../../sass/base/mixins';
+@import './../../sass/base/palette';
 
 .root {
   margin-top: 100px;
+  @include animation_speed;
   .title {
     @include title;
   }
   .block1 {
-    margin-top: 30px;
+    margin-top: 65px;
     .subtitle {
       font-weight: 700;
       font-family: 'Roboto';
       font-size: 19px;
+      color: $text-color;
     }
     .check__list {
       list-style-type: none;
       padding-left: 25px;
       margin-top: 15px;
+      color: $text-color;
       li {
         font-family: 'Roboto';
         line-height: 29px;
@@ -31,7 +35,7 @@
           content: '';
           width: 6px;
           height: 6px;
-          background-color: #303070;
+          background-color: $main-icons-color;
           border-radius: 100%;
         }
       }
@@ -45,17 +49,20 @@
       font-weight: 700;
       font-family: 'Roboto';
       font-size: 19px;
+      color: $text-color;
     }
     .descr {
       margin-top: 15px;
       font-family: 'Roboto';
       font-size: 16px;
       font-weight: 400;
+      color: $text-color;
     }
     .check__list {
       list-style-type: none;
       padding-left: 25px;
       margin-top: 15px;
+      color: $text-color;
       li {
         font-family: 'Roboto';
         line-height: 29px;
@@ -71,12 +78,16 @@
           content: '';
           width: 6px;
           height: 6px;
-          background-color: #303070;
+          background-color: $main-icons-color;
           border-radius: 100%;
         }
       }
     }
   }
+}
+
+.visible {
+  @include visible;
 }
 
 @media (max-width: 1200px) {
