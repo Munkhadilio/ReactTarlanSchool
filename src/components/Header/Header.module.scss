@@ -147,9 +147,9 @@
 @media (max-width: 925px) {
   .root {
     .wrapper {
-      min-height: 74px;
+      max-height: 74px;
       margin: 0;
-      padding: 10px 7px;
+      padding: 7px 7px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -204,6 +204,11 @@
             }
           }
         }
+      }
+
+      .logo {
+        width: 64px;
+        height: 64px;
       }
     }
   }

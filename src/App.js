@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-
+import Snowfall from 'react-snowfall';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { HeaderSpacer } from './components/HeaderSpacer/HeaderSpacer';
@@ -12,7 +12,7 @@ import { Admission } from './pages/Admission/Admission';
 import { Contacts } from './pages/Contacts/Contacts';
 import { Login } from './pages/Login/index';
 import { AddPost } from './pages/AddPost';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAuthMe } from './redux/slices/auth';
 import { FullPost } from './pages/FullPost/FullPost';
@@ -22,8 +22,17 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const scrollRef = useRef();
+  const [showSnowfall, setShowSnowfall] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0); // Прокручиваем страницу вверх при изменении пути
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setShowSnowfall(false);
+    setTimeout(() => {
+      setShowSnowfall(true);
+    }, 1500); // Показать Snowfall через 1 секунду
   }, [location.pathname]);
 
   useEffect(() => {
@@ -32,6 +41,15 @@ function App() {
 
   return (
     <div className="App">
+      {showSnowfall && ( // Показать Snowfall, если showSnowfall === true
+        <Snowfall
+          style={{
+            position: 'fixed',
+            width: '100vw',
+            height: '100vh',
+          }}
+        />
+      )}
       <Header scrollRef={scrollRef} />
       <HeaderSpacer />
       <Routes>

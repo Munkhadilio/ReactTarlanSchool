@@ -1,17 +1,36 @@
+@import './../../sass/base/mixins';
+@import './../../sass/base/palette';
+
 :global {
   .react-calendar {
     width: 400px;
     max-width: 100%;
-    background-color: #fff;
+    background-color: $block-color;
     color: #222;
     border-radius: 8px;
     box-shadow: 0 0px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
-    border: 1px solid #f1f1f1;
+    border: none;
+    height: fit-content;
+
+    &__month-view__weekdays {
+      &__weekday {
+        color: $text-color;
+        &--weekend {
+          color: #d10000;
+        }
+      }
+    }
+    &__month-view__days__day {
+      color: $text-color;
+      &--neighboringMonth {
+        color: #999999;
+      }
+    }
   }
   .react-calendar__navigation button {
-    color: #271d62;
+    color: $text-color;
     min-width: 44px;
     background: none;
     font-size: 16px;
@@ -40,7 +59,7 @@
     background: #6f48eb33;
     border-radius: 6px;
     font-weight: bold;
-    color: #271d62;
+    color: $text-color;
   }
   .react-calendar__tile--now:enabled:hover,
   .react-calendar__tile--now:enabled:focus {
@@ -90,9 +109,6 @@
   }
 }
 
-@import './../../sass/base/mixins';
-@import './../../sass/base/palette';
-
 .holidays {
   content: '';
   width: 10px;
@@ -117,7 +133,11 @@
     flex-wrap: wrap;
     display: flex;
     gap: 20px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 992px) {
+      justify-content: center;
+    }
     ul {
       display: flex;
       flex-direction: column;
@@ -176,15 +196,5 @@
     .react-calendar {
       max-width: 95%;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .root {
-  }
-}
-
-@media (max-width: 576px) {
-  .root {
   }
 }

@@ -8,13 +8,13 @@ export const AboutSchool = () => {
   });
 
   return (
-    <div className={`${styles.root} ${inView ? styles.visible : ''}`}>
+    <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <h1>
           Добро пожаловать в <span>Tarlan School</span>
         </h1>
         <div className={styles.wrapper}>
-          <div className={styles.text} ref={ref}>
+          <div className={styles.text}>
             Частная школа Tarlan School начала работу в период обновления Казахстанского
             образования. Уровень образования будущих выпускников школы позволяет им успешно
             поступать в лучшие университеты мира, и учиться там, демонстрируя качество

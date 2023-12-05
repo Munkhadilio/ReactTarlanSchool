@@ -1,13 +1,6 @@
 .root {
   height: 97px;
-}
-
-// @media (max-width: 768px) {
-//   .root {
-//     height: 97px;
-//   }
-// }
-
-//Минимальная ширина телефона 320px
-@media (max-width: 576px) {
+  @media screen and (max-width: 925px) {
+    height: 88px;
+  }
 }
