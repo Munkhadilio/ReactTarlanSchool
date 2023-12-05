@@ -11,6 +11,7 @@ import { SchoolEnglish } from './../components/SchoolEnglish/SchoolEnglish';
 import { Contacts } from './../pages/Contacts/Contacts';
 import { CalendarComponent } from '../components/CalendarComponent/CalendarComponent';
 import Mugs from '../components/Mugs/Mugs';
+import { Director } from '../components/Director/Director';
 
 export const Home = ({ scrollRef }) => {
   // вкладывается в переменную о местоположение DOM
@@ -20,6 +21,7 @@ export const Home = ({ scrollRef }) => {
       <GallerySliderV2 />
       <AboutSchool />
       <News />
+      <Director />
       <Mugs />
       <SchoolEnglish />
       <Benefits />
