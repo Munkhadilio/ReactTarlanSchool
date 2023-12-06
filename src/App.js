@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Snowfall from 'react-snowfall';
+// import Snowfall from 'react-snowfall';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { HeaderSpacer } from './components/HeaderSpacer/HeaderSpacer';
@@ -22,18 +22,18 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const scrollRef = useRef();
-  const [showSnowfall, setShowSnowfall] = useState(false);
+  //const [showSnowfall, setShowSnowfall] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // Прокручиваем страницу вверх при изменении пути
   }, [location.pathname]);
 
-  useEffect(() => {
-    setShowSnowfall(false);
-    setTimeout(() => {
-      setShowSnowfall(true);
-    }, 1500); // Показать Snowfall через 1 секунду
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   setShowSnowfall(false);
+  //   setTimeout(() => {
+  //     setShowSnowfall(true);
+  //   }, 1500); // Показать Snowfall через 1 секунду
+  // }, [location.pathname]);
 
   useEffect(() => {
     dispatch(fetchAuthMe());
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      {showSnowfall && ( // Показать Snowfall, если showSnowfall === true
+      {/* {showSnowfall && ( // Показать Snowfall, если showSnowfall === true
         <Snowfall
           style={{
             position: 'fixed',
@@ -49,7 +49,7 @@ function App() {
             height: '100vh',
           }}
         />
-      )}
+      )} */}
       <Header scrollRef={scrollRef} />
       <HeaderSpacer />
       <Routes>

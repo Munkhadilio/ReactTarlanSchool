@@ -32,13 +32,16 @@ export const CompositionOfTeachers = () => {
     }
   };
 
-  const directors = [
+  const director = [
     {
       img: importedImages[0],
       name: 'Ким Игорь Леонидович',
       role: 'Генеральный Директор "TARLAN SCHOOL"',
       additionalInfo: 'Почетный работник образования Республики Казахстан',
     },
+  ];
+
+  const teachers = [
     {
       img: importedImages[1],
       name: 'Богаскулова Салиха Сламбековна',
@@ -46,9 +49,6 @@ export const CompositionOfTeachers = () => {
       additionalInfo:
         'Образование высшее категория высшая окончила ЛГУ им.Герцена, АГУ им.Абая стаж 32 года Кандидат педагогических наук',
     },
-  ];
-
-  const teachers = [
     {
       img: importedImages[2],
 
@@ -272,24 +272,13 @@ export const CompositionOfTeachers = () => {
               <div
                 className={styles.first__item}
                 onClick={() => {
-                  handleTeacherClick(directors[0]);
+                  handleTeacherClick(director[0]);
                   scrollToBeginning();
                 }}>
                 <img src={importedImages[0]} alt="" />
-                <h3 className={styles.name}>{directors[0].name}</h3>
-                <h3 className={styles.role}>{directors[0].role}</h3>
-                <h3 className={styles.additionalInfo}>{directors[0].additionalInfo}</h3>
-              </div>
-              <div
-                className={styles.first__item}
-                onClick={() => {
-                  handleTeacherClick(directors[1]);
-                  scrollToBeginning();
-                }}>
-                <img src={importedImages[1]} alt="" />
-                <h3 className={styles.name}>{directors[1].name}</h3>
-                <h3 className={styles.role}>{directors[1].role}</h3>
-                <h3 className={styles.additionalInfo}>{directors[1].additionalInfo}</h3>
+                <h3 className={styles.name}>{director[0].name}</h3>
+                <h3 className={styles.role}>{director[0].role}</h3>
+                <h3 className={styles.additionalInfo}>{director[0].additionalInfo}</h3>
               </div>
             </div>
             {location.pathname === '/' && (
