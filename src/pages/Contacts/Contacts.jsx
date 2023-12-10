@@ -1,51 +1,52 @@
 import React from 'react';
 import styles from './Contacts.module.scss';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import { useInView } from 'react-intersection-observer';
 
 export const Contacts = () => {
+  const { t } = useTranslation();
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Адрес и контакты</h1>
+        <h1 className={styles.title}>{t('contacts.title')}</h1>
         <div className={styles.wrapper}>
           <div className={styles.contacts}>
             <div className={styles.items}>
-              <div className={styles.name}>Приемная</div>
+              <div className={styles.name}>{t('contacts.reception')}</div>
               <a className={styles.num} href="tel:+77273987256">
                 +7 (727) 398-72-56
               </a>
             </div>
             <div className={styles.items}>
-              <div className={styles.name}>Приемная</div>
+              <div className={styles.name}>{t('contacts.reception')}</div>
               <a className={styles.num} href="tel:+77273987257">
                 +7 (727) 398-72-57
               </a>
             </div>
             <div className={styles.items}>
-              <div className={styles.name}>Богаскулова Салиха Исламбековна, Зам. Ген Директора</div>
+              <div className={styles.name}>{t('contacts.deputyDirector')}</div>
               <a className={styles.num} href="tel:+77771812207">
                 +7 (777) 181-22-07
               </a>
             </div>
             <div className={styles.items}>
-              <div className={styles.name}>Ткаченко Елена Васильевна, Завуч по ВР</div>
+              <div className={styles.name}>{t('contacts.headTeacher')}</div>
               <a className={styles.num} href="tel:+77072542168">
                 +7 (707) 254-21-68
               </a>
             </div>
             <div className={styles.items}>
-              <div className={styles.name}>Кабинет завучей</div>
+              <div className={styles.name}>{t('contacts.headTeachersOffice')}</div>
               <a className={styles.num} href="tel:+77272211082">
                 +7 (727) 221-10-82
               </a>
             </div>
             <div className={styles.items}>
-              <div className={styles.name}>
-                Адеми Айдаркызы Жамбылова, ассистент по работе с клиентами
-              </div>
+              <div className={styles.name}>{t('contacts.assistant')}</div>
               <a className={styles.num} href="tel:+77778401585">
                 +7 (777) 840-15-85
               </a>

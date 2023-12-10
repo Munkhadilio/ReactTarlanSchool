@@ -1,8 +1,12 @@
 import React, { useState, useRef } from 'react';
 import styles from './CompositionOfTeachers.module.scss';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { ImCross } from 'react-icons/im';
+import { useSelector } from 'react-redux';
+import { nowLanguage } from '../../redux/slices/language';
 
 export const CompositionOfTeachers = () => {
   const [selectedTeacher, setSelectedTeacher] = useState(null);
@@ -10,6 +14,9 @@ export const CompositionOfTeachers = () => {
   const location = useLocation();
   const importedImages = [];
   const toBeginning = useRef(null);
+  const { t } = useTranslation();
+
+  const language = useSelector(nowLanguage);
 
   for (let i = 1; i <= 34; i++) {
     importedImages.push(require(`../../images/Teachers/${i}.jpg`));
@@ -32,7 +39,7 @@ export const CompositionOfTeachers = () => {
     }
   };
 
-  const director = [
+  const ruDirector = [
     {
       img: importedImages[0],
       name: 'Ким Игорь Леонидович',
@@ -41,7 +48,16 @@ export const CompositionOfTeachers = () => {
     },
   ];
 
-  const teachers = [
+  const kzDirector = [
+    {
+      img: importedImages[0],
+      name: 'Ким Игорь Леонидович',
+      role: '"TARLAN SCHOOL" мектебінің бас директоры',
+      additionalInfo: 'Қазақстан Республикасының Білім беру ісінің құрметті қызметкері',
+    },
+  ];
+
+  const ruTeachers = [
     {
       img: importedImages[1],
       name: 'Богаскулова Салиха Сламбековна',
@@ -262,65 +278,328 @@ export const CompositionOfTeachers = () => {
     },
   ];
 
+  const kzTeachers = [
+    {
+      img: importedImages[1],
+      name: 'Богаскулова Салиха Сламбековна',
+      role: 'Бас директордың орынбасары, Қазақ тілі мен әдебиеті мұғалімі',
+      additionalInfo:
+        'Білімі жоғары жоғары санат ол ЛМУ-ді бітірді.Герцен, АГУ им.Абай еңбек өтілі 32 жыл Педагогика ғылымдарының кандидаты',
+    },
+    {
+      img: importedImages[2],
+
+      name: 'Ткаченко Елена Васильевна',
+      role: 'Тәрбие бөлімінің меңгерушісі, тарих пәнінің мұғалімі',
+      additionalInfo:
+        'Білімі жоғары Бірінші санат Жұмыс өтілі 15 жыл ҚазҰУ-им бітірген.Әл-Фараби, тарих пәнінің оқытушысы Бостандық РҚБ, "Нұр Отан" партиясы, "Әлеуметтік бастамалар Қорының"грамоталарымен марапатталған ҚР Білім және ғылымды дамытуға қосқан үлесі үшін "АСЫЛ ҰСТАЗ" медалімен марапатталған',
+    },
+    {
+      img: importedImages[3],
+      name: 'Галицкая Людмила Геннадьевна',
+      role: 'Оқу бөлімінің меңгерушісі, орыс тілі мен әдебиеті пәнінің мұғалімі',
+      additionalInfo:
+        'Білімі жоғары ҚазМУ-фил бітірген, филолог. Пед.еңбек өтілі 32 жыл, жоғары санат, меңгеруші, Бостандық ауданы РҚБ грамоталарымен, ҚР білім беруді дамытуға қосқан үлесі үшін 2021 ж. білім департаментінің грамотасымен марапатталған',
+    },
+    {
+      img: importedImages[4],
+      name: 'Кашкенова Гүлнара Айсайқызы',
+      role: 'Орыс тілі мен әдебиеті пәнінің мұғалімі',
+      additionalInfo: 'Білімі жоғары, педагогикалық өтілі 14 жыл, жалпы 38 жыл. Санат: Модератор',
+    },
+    {
+      img: importedImages[5],
+      name: 'Рысбеков Болат Мұратұлы',
+      role: 'Биология Пәнінің Мұғалімі',
+      additionalInfo:
+        'Білімі жоғары. Биология және жаратылыстану пәндерінің мұғалімі. Жұмыс өтілі 4 жыл. ҚММУ түлегі. Биология бойынша республикалық олимпиаданың екі дүркін алтын жүлдегері. Жаратылыстану ғылымдары бойынша Халықаралық Олимпиаданың алтын жүлдегері',
+    },
+    {
+      img: importedImages[6],
+      name: 'Жүсіпов Әлібек Ысқақұлы',
+      role: 'Физика Пәнінің Мұғалімі',
+      additionalInfo: 'Білімі жоғары: Satbayev University',
+    },
+    {
+      img: importedImages[7],
+      name: 'Пильская Марина Александровна',
+      role: 'Орыс тілі мен әдебиеті пәнінің мұғалімі',
+      additionalInfo:
+        'Білімі жоғары Жоғары санат. Білімі-АМУ. Абай, үздік диплом. Еңбек өтілі-24 жыл. Жұмыс істеген жылдары оқушылар аудандық, қалалық және халықаралық олимпиадалардың жеңімпаздары. Педагогика және оқыту әдістемесі бойынша 30-дан астам мақаланың авторы.',
+    },
+    {
+      img: importedImages[8],
+      name: 'Мұратов Ернұр Ермекұлы',
+      role: 'Ағылшын тілі мұғалімі',
+      additionalInfo: 'Білімі Жоғары. Еңбек өтілі 4 жыл',
+    },
+    {
+      img: importedImages[9],
+      name: 'Якунина Татьяна Викторовна',
+      role: 'Бастауыш сынып мұғалімі. Сынып қолы-л 4Б кл',
+      additionalInfo:
+        'Білімі-Жоғары. Бастауыш сынып мұғалімі. Еңбек өтілі: 35 жыл. Санат - жоғары, Зерттеуші мұғалім.',
+    },
+    {
+      img: importedImages[10],
+      name: 'Уринова Ольга Обидовна',
+      role: 'Хореография мұғалімі',
+      additionalInfo: 'Білімі жоғары.',
+    },
+    {
+      img: importedImages[11],
+      name: 'Дорохова Ольга Игоревна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo: 'Білімі жоғары АМУ оларға.Абай Педагогикалық еңбек өтілі 12 жыл 2 санат',
+    },
+    {
+      img: importedImages[12],
+      name: 'Имирова Светлана Абдурашитовна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo:
+        'жоғары санат, Еңбек өтілі 35 жыл. Білімі жоғары (Киров атындағы ҚазМУ) Медеу және Бостандық аудандары әкімдерінің грамоталары, "Бөбек" ОО-ның грамоталары бар.',
+    },
+    {
+      img: importedImages[13],
+      name: 'Репнякова Ксения Сергеевна',
+      role: 'Ағылшын тілі мұғалімі',
+      additionalInfo: 'Білімі-Жоғары. Еңбек өтілі 5 жыл Санат: 2',
+    },
+    {
+      img: importedImages[14],
+      name: 'Макаренко Анна Валентиновна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo: 'Волгоград педагогикалық институты. Еңбек өтілі 40 жыл. Санат жоқ.',
+    },
+    {
+      img: importedImages[15],
+      name: 'Мамырбаева Әсем Мәжитова',
+      role: 'Қазақ тілі мен әдебиеті пәнінің мұғалімі',
+      additionalInfo: 'Білімі жоғары ҚазҰПУ.Абай еңбек өтілі 10 жыл бірінші санат',
+    },
+    {
+      img: importedImages[16],
+      name: 'Когай Луиза Михайловна',
+      role: 'Дене шынықтыру мұғалімі',
+      additionalInfo:
+        'Білімі жоғары Кезик еңбек өтілі 25 жыл 2 санат 2002 жылғы баскетболдан Еуропа чемпионатының тәрбиеленушілері жүлдегерлері',
+    },
+    {
+      img: importedImages[17],
+      name: 'Штукерт Светлана Евгеньевна',
+      role: 'Сурет мұғалімі, сызбалар',
+      additionalInfo:
+        'Білімі жоғары ҚазПТИ бітірген, 1981 жыл 1 санат Оқушылар-халықаралық шығармашылық конкурстардың жүлдегерлері',
+    },
+    {
+      img: importedImages[18],
+      name: 'Осипова Светлана Петровна',
+      role: 'Дене шынықтыру мұғалімі',
+      additionalInfo:
+        'Білімі жоғары жоғары санат "Жыл мұғалімі" байқауының лауреаты Алматы 2000 Тәрбиеленушілер Алматы қ. жарыстарының бірнеше дүркін жүлдегерлері',
+    },
+    {
+      img: importedImages[19],
+      name: 'Жубанышев Алмас Жумахметович',
+      role: 'Информатика пәнінің мұғалімі',
+      additionalInfo:
+        'Білімі жоғары. ҚазҰПУ. Абай физика-математика факультеті, еңбек өтілі 10 жыл',
+    },
+    {
+      img: importedImages[20],
+      name: 'Нурбекова Гульмира Жолдыгуловна',
+      role: 'Математика пәнінің мұғалімі',
+      additionalInfo: 'Жұмыс өтілі-29 жыл, санат жоғары. Бостандық РҚБ грамотасы.',
+    },
+    {
+      img: importedImages[21],
+      name: 'Лопатина Наталья Борисовна',
+      role: 'География Пәнінің Мұғалімі',
+      additionalInfo: 'Білімі жоғары',
+    },
+    {
+      img: importedImages[22],
+      name: 'Абдрахманова Арман Мукашевна',
+      role: 'Орыс тілі мен әдебиеті пәнінің мұғалімі',
+      additionalInfo:
+        'Білімі жоғары Біліктілігі жоғары деңгейдегі жоғары санатты. Педагогикалық өтілі: 32 жыл. "Қазақстан Республикасының 2016 жылғы үздік педагогы" атағы мен медалінің иегері. "Ы.Алтынсарин". "ҚР Білім беру ісінің құрметті қызметкері" төсбелгісінің иегері. Халықаралық Пушкин русистер байқауының лауреаты (Мәскеу қ.). ҚР БҒМ Құрмет грамоталарының иегері; Халықаралық және Республикалық педагогикалық олимпиадалар мен конкурстардың, ғылыми жобалар жарыстарының жүлдегері. Қазақстан Республикасының мұғалімдеріне арналған әдістемелік құралдарды құрастырушы.',
+    },
+    {
+      img: importedImages[23],
+      name: 'Сәрсенбай Қали Ысқақұлы',
+      role: 'Ағылшын тілі және химия пәнінің мұғалімі',
+      additionalInfo: 'Білімі-Жоғары',
+    },
+    {
+      img: importedImages[24],
+      name: 'Стешина Светлана Николаевна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo:
+        '1981 жылы Есік педагогикалық училищесін бітірді. Аудан және білім департаменті бойынша грамоталармен марапатталған',
+    },
+    {
+      img: importedImages[25],
+      name: 'Калакбасова Баян Жолдыгуловна',
+      role: 'Тарих Пәнінің Мұғалімі',
+      additionalInfo:
+        'Білімі жоғары. Тараз педагогикалық институты. Педагогикалық өтілі-12 жыл. Санат-педагог-модератор. Марапаттары-Алматы облысы Жамбыл ауданы РҚБ',
+    },
+    {
+      img: importedImages[26],
+      name: 'Бейімбетов Диас',
+      role: 'Математика Пәнінің Мұғалімі',
+      additionalInfo:
+        'Білімі жоғары. Білімі Жоғары Сүлейман Демирель атындағы университет (СДУ). Еңбек өтілі 7 жыл',
+    },
+    {
+      img: importedImages[27],
+      name: 'Нұрпейісова Гүлмира Жұмабекқызы',
+      role: 'Информатика мұғалімі (IT)',
+      additionalInfo:
+        'Білімі жоғары. Еңбек өтілі 34 жыл. ҚазҰУ. Әл-Фараби ФПМ факультеті (бакалавр), ҚазҰУ. Әл-Фараби факультеті (магистратура, теория. механика). ҚазҰАУ экономика факультеті Құқықтану мамандығы',
+    },
+    {
+      img: importedImages[28],
+      name: 'Аскерханова Салтанат Аскерханқызы',
+      role: 'Қазақ тілі мұғалімі',
+      additionalInfo: 'Білімі Жоғары. Педагогикалық өтілі 17 жыл. Бірінші санат',
+    },
+    {
+      img: importedImages[29],
+      name: 'Құрманбаева Жазира Құсайынқызы',
+      role: 'Қазақ тілі мұғалімі',
+      additionalInfo: 'Білімі жоғары. Еңбек өтілі 13 жыл.',
+    },
+    {
+      img: importedImages[30],
+      name: 'Георгиади Елена Вячеславовна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo: 'Білімі жоғары. Еңбек өтілі 20 жыл. Санат-Бірінші.',
+    },
+    {
+      img: importedImages[31],
+      name: 'Ансарова Эльвира Эрнестовна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo: 'Білімі жоғары. Жұмыс өтілі 10 жыл. Санат-Педагог-модератор',
+    },
+    {
+      img: importedImages[32],
+      name: 'Амраева Шадмира Инипахуновна',
+      role: 'Музыка Мұғалімі',
+      additionalInfo: 'Білімі жоғары. Еңбек өтілі 36 жыл. Жоғары санат, Педагог-зерттеуші',
+    },
+    {
+      img: importedImages[33],
+      name: 'Любомир Ольга Владиславовна',
+      role: 'Бастауыш сынып мұғалімі',
+      additionalInfo:
+        'Білімі жоғары. Педагогикалық өтілі-бастауыш мектепте 40 жыл Жоғары санат, педагог-зерттеуші',
+    },
+  ];
+
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={toBeginning}>
       <div ref={ref}>
         {!selectedTeacher ? (
           <div className="container">
-            <h1 className={styles.title}>Наши преподаватели</h1>
+            <h1 className={styles.title}>{t('teachers.title')}</h1>
             <div className={styles.first__items}>
-              <div
-                className={styles.first__item}
-                onClick={() => {
-                  handleTeacherClick(director[0]);
-                  scrollToBeginning();
-                }}>
-                <img src={importedImages[0]} alt="" />
-                <h3 className={styles.name}>{director[0].name}</h3>
-                <h3 className={styles.role}>{director[0].role}</h3>
-                <h3 className={styles.additionalInfo}>{director[0].additionalInfo}</h3>
-              </div>
+              {language === 'ru' ? (
+                <div
+                  className={styles.first__item}
+                  onClick={() => {
+                    handleTeacherClick(ruDirector[0]);
+                    scrollToBeginning();
+                  }}>
+                  <img src={importedImages[0]} alt="" />
+                  <h3 className={styles.name}>{ruDirector[0].name}</h3>
+                  <h3 className={styles.role}>{ruDirector[0].role}</h3>
+                  <h3 className={styles.additionalInfo}>{ruDirector[0].additionalInfo}</h3>
+                </div>
+              ) : (
+                <div
+                  className={styles.first__item}
+                  onClick={() => {
+                    handleTeacherClick(kzDirector[0]);
+                    scrollToBeginning();
+                  }}>
+                  <img src={importedImages[0]} alt="" />
+                  <h3 className={styles.name}>{kzDirector[0].name}</h3>
+                  <h3 className={styles.role}>{kzDirector[0].role}</h3>
+                  <h3 className={styles.additionalInfo}>{kzDirector[0].additionalInfo}</h3>
+                </div>
+              )}
             </div>
             {location.pathname === '/' && (
               <>
                 <div className={styles.items}>
-                  {teachers.slice(0, 8).map((data, i) => (
-                    <div
-                      className={styles.item}
-                      key={i}
-                      onClick={() => {
-                        handleTeacherClick(data);
-                        scrollToBeginning();
-                      }}>
-                      <img src={data.img} alt="" />
-                      <h3 className={styles.name}>{data.name}</h3>
-                      <h3 className={styles.role}>{data.role}</h3>
-                      <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
-                    </div>
-                  ))}
+                  {language === 'ru'
+                    ? ruTeachers.slice(0, 8).map((data, i) => (
+                        <div
+                          className={styles.item}
+                          key={i}
+                          onClick={() => {
+                            handleTeacherClick(data);
+                            scrollToBeginning();
+                          }}>
+                          <img src={data.img} alt="" />
+                          <h3 className={styles.name}>{data.name}</h3>
+                          <h3 className={styles.role}>{data.role}</h3>
+                          <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
+                        </div>
+                      ))
+                    : kzTeachers.slice(0, 8).map((data, i) => (
+                        <div
+                          className={styles.item}
+                          key={i}
+                          onClick={() => {
+                            handleTeacherClick(data);
+                            scrollToBeginning();
+                          }}>
+                          <img src={data.img} alt="" />
+                          <h3 className={styles.name}>{data.name}</h3>
+                          <h3 className={styles.role}>{data.role}</h3>
+                          <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
+                        </div>
+                      ))}
                 </div>
 
                 <button className={styles.button__all} onClick={() => navigate('/teachers')}>
-                  Все учителя
+                  {t('teachers.button')}
                 </button>
               </>
             )}
             {location.pathname === '/teachers' && (
               <div className={styles.items}>
-                {teachers.map((data, i) => (
-                  <div
-                    className={styles.item}
-                    key={i}
-                    onClick={() => {
-                      handleTeacherClick(data);
-                      scrollToBeginning();
-                    }}>
-                    <img src={data.img} alt="" />
-                    <h3 className={styles.name}>{data.name}</h3>
-                    <h3 className={styles.role}>{data.role}</h3>
-                    <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
-                  </div>
-                ))}
+                {language === 'ru'
+                  ? ruTeachers.map((data, i) => (
+                      <div
+                        className={styles.item}
+                        key={i}
+                        onClick={() => {
+                          handleTeacherClick(data);
+                          scrollToBeginning();
+                        }}>
+                        <img src={data.img} alt="" />
+                        <h3 className={styles.name}>{data.name}</h3>
+                        <h3 className={styles.role}>{data.role}</h3>
+                        <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
+                      </div>
+                    ))
+                  : kzTeachers.map((data, i) => (
+                      <div
+                        className={styles.item}
+                        key={i}
+                        onClick={() => {
+                          handleTeacherClick(data);
+                          scrollToBeginning();
+                        }}>
+                        <img src={data.img} alt="" />
+                        <h3 className={styles.name}>{data.name}</h3>
+                        <h3 className={styles.role}>{data.role}</h3>
+                        <h3 className={styles.additionalInfo}>{data.additionalInfo}</h3>
+                      </div>
+                    ))}
               </div>
             )}
           </div>

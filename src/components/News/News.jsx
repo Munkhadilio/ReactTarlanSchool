@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './News.module.scss';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import { format } from 'date-fns';
 import { useInView } from 'react-intersection-observer';
 import { fetchPosts, fetchRemovePost } from './../../redux/slices/posts';
@@ -18,6 +20,7 @@ export const News = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const userData = useSelector(userDetails);
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     dispatch(fetchPosts());
@@ -43,7 +46,7 @@ export const News = () => {
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
-        <h1 className={styles.title}>Новости школы</h1>
+        <h1 className={styles.title}> {t('news.title')}</h1>
         {/* posts.items.length */}
         {posts.items.length > 0 ? (
           <>
@@ -81,7 +84,7 @@ export const News = () => {
             </div>
             {location.pathname === '/' && (
               <button className={styles.button} onClick={() => navigate('/news')}>
-                Все новости
+                {t('news.button_news')}
               </button>
             )}
           </>
@@ -101,7 +104,7 @@ export const News = () => {
             {location.pathname === '/' && (
               <>
                 <Link to="/news">
-                  <button className={styles.button}>Все новости</button>
+                  <button className={styles.button}>{t('news.button_news')}</button>
                 </Link>
               </>
             )}

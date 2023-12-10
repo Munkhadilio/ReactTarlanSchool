@@ -1,11 +1,17 @@
 import React, { useRef } from 'react';
 import styles from './QwForm.module.scss';
 import axios from './../../axios';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import { useInView } from 'react-intersection-observer';
 import config from '../../config';
+import { useSelector } from 'react-redux';
+import { nowLanguage } from '../../redux/slices/language';
 
 export const QwForm = ({ scrollRef }) => {
   // scrollRef передаем его в Home
+  const { t } = useTranslation();
+  const language = useSelector(nowLanguage);
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
@@ -31,28 +37,37 @@ export const QwForm = ({ scrollRef }) => {
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <div className={styles.wrapper}>
-          <h3 className={styles.title}>Остались вопросы?</h3>
-          <h3 className={styles.descr}>Свяжитесь с нашей приемной комиссией</h3>
+          <h3 className={styles.title}>{t('qwForm.questions')}</h3>
+          <h3 className={styles.descr}>{t('qwForm.selectionCommittee')}</h3>
           <form action="" ref={scrollRef} onSubmit={(e) => handleSubmit(e)}>
             <input
               className={styles.input__name}
               name="name"
-              placeholder="Как вас зовут?"
+              placeholder={t('qwForm.input_name')}
               type="text"
             />
             <input className={styles.input__phone} name="phone" placeholder="+7 (777) 777-77-77" />
             <input
               className={styles.input__email}
               name="email"
-              placeholder="Электронная почта"
+              placeholder={t('qwForm.input_email')}
               type="email"
             />
             <button className={styles.form__button} type="submit">
-              Отправить
+              {t('qwForm.button_send')}
             </button>
           </form>
           <a className={styles.privacy}>
-            Нажимая на кнопку «Отправить» я соглашаюсь с <span>политикой конфиденциальности</span>
+            {language === 'ru' ? (
+              <>
+                Нажимая на кнопку «Отправить» я соглашаюсь с{' '}
+                <span>политикой конфиденциальности</span>
+              </>
+            ) : (
+              <>
+                «Жіберу» түймесін басу арқылы мен <span>құпиялылық саясатымен</span> келісемін
+              </>
+            )}
           </a>
         </div>
       </div>

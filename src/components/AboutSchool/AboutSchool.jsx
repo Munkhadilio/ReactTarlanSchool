@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './AboutSchool.module.scss';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
+import { nowLanguage } from '../../redux/slices/language';
 import { useInView } from 'react-intersection-observer';
+import { useSelector } from 'react-redux';
 
 export const AboutSchool = () => {
+  const language = useSelector(nowLanguage);
+  const { t } = useTranslation();
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
@@ -11,20 +17,22 @@ export const AboutSchool = () => {
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <h1>
-          Добро пожаловать в <span>Tarlan School</span>
+          {language === 'ru' ? (
+            <>
+              Добро пожаловать в <span>Tarlan School</span>
+            </>
+          ) : (
+            <>
+              <span>Тарлан мектебіне</span> қош келдіңіз
+            </>
+          )}
         </h1>
         <div className={styles.wrapper}>
           <div className={styles.text}>
-            Частная школа Tarlan School начала работу в период обновления Казахстанского
-            образования. Уровень образования будущих выпускников школы позволяет им успешно
-            поступать в лучшие университеты мира, и учиться там, демонстрируя качество
-            Казахстанского образования. За это время школа Tarlan School стала инновационной школой,
-            ориентированной на лучшие образцы мирового опыта в образовании.
+            {t('aboutSchool.text1')}
             <br />
             <br />
-            Профессиональная международная команда педагогов создают и поддерживают образовательную
-            среду, мотивирующую учеников на достижение высоких результатов в обучении,
-            способствующую формированию широкого мышления и разностороннему развитию.
+            {t('aboutSchool.text2')}
           </div>
           <div className={styles.youTube}>
             <iframe

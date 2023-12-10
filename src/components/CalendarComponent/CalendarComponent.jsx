@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import 'react-calendar/dist/Calendar.css';
 import styles from './CalendarComponent.module.scss';
 import { useInView } from 'react-intersection-observer';
 
 export const CalendarComponent = () => {
   const [value, onChange] = useState(new Date());
-
+  const { t } = useTranslation();
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
@@ -176,26 +178,24 @@ export const CalendarComponent = () => {
   return (
     <div className="container">
       <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
-        <h2 className={styles.title}>Школьные каникулы</h2>
+        <h2 className={styles.title}>{t('calendar.title')}</h2>
         <div className={styles.wrapper}>
           <ul>
             <li>
-              Осенние каникулы: <br />7 дней (30 октября - 5 ноября 2023 года)
+              {t('calendar.autumn.name')}: <br /> {t('calendar.autumn.dates')}
             </li>
             <li>
-              Зимние каникулы: <br />
-              10 дней (29 декабря 2023 года - 7 января 2024 года)
+              {t('calendar.winter.name')}: <br /> {t('calendar.winter.dates')}
             </li>
             <li>
-              Весенние каникулы: <br />
-              11 дней (21 - 31 марта 2024 года)
+              {t('calendar.spring.name')}: <br /> {t('calendar.spring.dates')}
             </li>
             <li>
-              Летние каникулы: <br />
-              98 дней (26 мая - 31 августа 2024 года)
+              {t('calendar.summer.name')}: <br /> {t('calendar.summer.dates')}
             </li>
             <li>
-              Дополнительные каникулы для первых классов: <br />7 дней (5 - 11 февраля 2024 года)
+              {t('calendar.additionalFirstGrade.name')}: <br />{' '}
+              {t('calendar.additionalFirstGrade.dates')}
             </li>
           </ul>
           <Calendar

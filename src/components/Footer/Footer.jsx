@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import logo from './../../images/logo.png';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Mail } from './../../images/soical-svg/mail.svg';
@@ -13,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export const Footer = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const isAuth = useSelector(userDetailsBoolean);
 
   const onClickLogout = () => {
@@ -48,25 +51,23 @@ export const Footer = () => {
                 <Telegram className={styles.social__icons} />
               </a> */}
             </div>
-            <div className={styles.address}>
-              Республика Казахстан, г. Алматы, мкр «Каргалы» ул. Редько, д.7
-            </div>
+            <div className={styles.address}>{t('header&footer.info.address')}</div>
             <div className={styles.mail}>sicbaiterek@mail.ru</div>
             {isAuth ? (
               ''
             ) : (
               <Link to="/login" className={styles.auth}>
-                Панель администратора
+                {t('header&footer.info.adminPanel')}
               </Link>
             )}
             {isAuth ? (
               <>
                 <Link to="/add-post" className={styles.auth}>
-                  Написать статью
+                  {t('header&footer.info.writePost')}
                 </Link>
 
                 <button className={styles.log__out} onClick={() => onClickLogout()}>
-                  Выйти
+                  {t('header&footer.info.exit')}
                 </button>
               </>
             ) : (
@@ -77,39 +78,37 @@ export const Footer = () => {
           <div className={styles.block2}>
             <h1 className={styles.title}>Контакты</h1>
             <div className={styles.c__item}>
-              <div className={styles.name}>Приемная</div>
+              <div className={styles.name}>{t('header&footer.contacts.reception')}</div>
               <a className={styles.num} href="tel:+77273987256">
                 +7 (727) 398-72-56
               </a>
             </div>
             <div className={styles.c__item}>
-              <div className={styles.name}>Приемная</div>
+              <div className={styles.name}>{t('header&footer.contacts.reception')}</div>
               <a className={styles.num} href="tel:+77272211082">
                 +7 (727) 221-10-82
               </a>
             </div>
             <div className={styles.c__item}>
-              <div className={styles.name}>Богаскулова Салиха Исламбековна, Зам. Ген Директора</div>
+              <div className={styles.name}>{t('header&footer.contacts.deputyDirector')}</div>
               <a className={styles.num} href="tel:+77771812207">
                 +7 (777) 181-22-07
               </a>
             </div>
             <div className={styles.c__item}>
-              <div className={styles.name}>Ткаченко Елена Васильевна, Завуч по ВР</div>
+              <div className={styles.name}>{t('header&footer.contacts.headTeacher')}</div>
               <a className={styles.num} href="tel:+77072542168">
                 +7 (707) 254-21-68
               </a>
             </div>
             <div className={styles.c__item}>
-              <div className={styles.name}>Кабинет завучей</div>
+              <div className={styles.name}>{t('header&footer.contacts.headTeachersOffice')}</div>
               <a className={styles.num} href="tel:+77272211082">
                 +7 (727) 221-10-82
               </a>
             </div>
             <div className={styles.c__item}>
-              <div className={styles.name}>
-                Адеми Айдаркызы Жамбылова, ассистент по работе с клиентами
-              </div>
+              <div className={styles.name}>{t('header&footer.contacts.assistant')}</div>
               <a className={styles.num} href="tel:+77778401585">
                 +7 (777) 840-15-85
               </a>
@@ -117,29 +116,35 @@ export const Footer = () => {
           </div>
 
           <div className={styles.block3}>
-            <h1 className={styles.title}>Меню</h1>
+            <h1 className={styles.title}>{t('header&footer.nav.title')}</h1>
             <Link to="/" onClick={window.scrollTo(0, 0)} className={styles.section}>
-              Главная
+              {t('header&footer.nav.main')}
             </Link>
             <Link to="/about" className={styles.section}>
-              О школе
+              {t('header&footer.nav.aboutSchool')}
+            </Link>
+            <Link to="/teachers" className={styles.section}>
+              {t('header&footer.nav.teachers')}
+            </Link>
+            <Link to="/news" className={styles.section}>
+              {t('header&footer.nav.news')}
             </Link>
             <Link to="/admission" className={styles.section}>
-              Поступление
+              {t('header&footer.nav.admission')}
             </Link>
             <Link to="/contacts" className={styles.section}>
-              Контакты
+              {t('header&footer.nav.contacts')}
             </Link>
             <Link to="" className={styles.section}>
-              Детский сад
+              {t('header&footer.nav.kindergarten')}
             </Link>
           </div>
 
           <div className={styles.block4}>
-            <h1 className={styles.title}>Рабочие дни</h1>
-            <h3 className={styles.time}>Понедельник - Пятница с 08:00 - 18:00 (детский сад)</h3>
-            <h3 className={styles.time}>Понедельник - Пятница с 08:30 - 16:05 (школа)</h3>
-            <h3 className={styles.time}>Суббота - Воскресенье: выходные</h3>
+            <h1 className={styles.title}>{t('header&footer.workDays.title')}</h1>
+            <h3 className={styles.time}>{t('header&footer.workDays.kindergarten')}</h3>
+            <h3 className={styles.time}>{t('header&footer.workDays.school')}</h3>
+            <h3 className={styles.time}>{t('header&footer.workDays.weekend')}</h3>
           </div>
         </div>
       </div>

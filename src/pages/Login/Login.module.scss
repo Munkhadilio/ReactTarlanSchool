@@ -1,9 +1,10 @@
+@import './../../sass/base/palette';
+
 .root {
   max-width: 400px;
   padding: 50px;
-  border: 1px solid #dedede;
   margin: 50px auto;
-  background-color: #fff;
+  background-color: $block-color;
   border-radius: 15px;
 }
 
@@ -48,9 +49,7 @@
   text-align: center !important;
   font-weight: bold !important;
   margin-bottom: 30px !important;
-  &__dark {
-    color: #ffffff;
-  }
+  color: $text-color;
 }
 
 .button {
@@ -69,7 +68,7 @@
     cursor: pointer;
     margin: 0 auto;
     &__isValid {
-      background-color: #2e43a6;
+      background-color: #24c55a;
       color: #ffffff;
     }
   }

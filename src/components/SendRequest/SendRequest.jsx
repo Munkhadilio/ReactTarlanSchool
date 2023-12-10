@@ -1,13 +1,18 @@
 import React from 'react';
 import styles from './SendRequest.module.scss';
+import ReactTyped from 'react-typed';
 import { useInView } from 'react-intersection-observer';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveLink, setDropdownStyle } from '../../redux/slices/headerSlice';
 
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
+
 export const SendRequest = ({ scrollRef }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
@@ -23,12 +28,15 @@ export const SendRequest = ({ scrollRef }) => {
     }
   };
 
+  const TypedText = ({ text }) => <ReactTyped strings={text} typeSpeed={25} />;
+  const text = [t('sendRequest.title_continuation')];
+
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <div className={styles.wrapper}>
           <h1 className={styles.title}>
-            Частная школа с уникальным образовательным подходом для вашего ребенка!
+            {t('sendRequest.title')} <TypedText text={text} />
           </h1>
           <div className={styles.buttons}>
             <button
@@ -38,10 +46,10 @@ export const SendRequest = ({ scrollRef }) => {
                 dispatch(setActiveLink('admission'));
                 dispatch(setDropdownStyle(false));
               }}>
-              Как поступить
+              {t('sendRequest.button_how-to-enter-school')}
             </button>
             <button className={styles.button__consultation} onClick={() => scrollToElement()}>
-              Получить консультацию
+              {t('sendRequest.button_consultation')}
             </button>
           </div>
         </div>

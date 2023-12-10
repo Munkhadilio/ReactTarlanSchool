@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import logo from './../../images/logo.png';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setActiveLink, setDropdownStyle } from '../../redux/slices/headerSlice';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { SelectLang } from '../SelectLang/SelectLang';
 
 export const Header = ({ scrollRef }) => {
   const dispatch = useDispatch();
@@ -13,6 +16,7 @@ export const Header = ({ scrollRef }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const timeoutRef = useRef(null);
+  const { t } = useTranslation();
 
   const { activeLink, styleContent } = useSelector((state) => state.header);
 
@@ -79,13 +83,13 @@ export const Header = ({ scrollRef }) => {
                 onClick={() => {
                   linkClick('home', false);
                 }}>
-                Главная
+                {t('header&footer.nav.main')}
               </Link>
               <div
                 className={`${styles.dropdown} ${styleContent ? styles.nav__a__active : ''}`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}>
-                О школе
+                {t('header&footer.nav.aboutSchool')}
                 <div
                   className={`${styles.dropdown__arrow} ${
                     showDropdown ? styles.dropdown__arrow__active : ''
@@ -101,7 +105,7 @@ export const Header = ({ scrollRef }) => {
                         handleLinkClick();
                         linkClick('about', true);
                       }}>
-                      О нас
+                      {t('header&footer.nav.aboutUs')}
                     </Link>
                     <Link
                       className={`${styles.dropdown__a} ${
@@ -112,7 +116,7 @@ export const Header = ({ scrollRef }) => {
                         handleLinkClick();
                         linkClick('teachers', true);
                       }}>
-                      Преподаватели
+                      {t('header&footer.nav.teachers')}
                     </Link>
                     <Link
                       className={`${styles.dropdown__a} ${
@@ -123,7 +127,7 @@ export const Header = ({ scrollRef }) => {
                         handleLinkClick();
                         linkClick('news', true);
                       }}>
-                      Новости
+                      {t('header&footer.nav.news')}
                     </Link>
                   </div>
                 )}
@@ -136,7 +140,7 @@ export const Header = ({ scrollRef }) => {
                 onClick={() => {
                   linkClick('admission', false);
                 }}>
-                Правила поступления
+                {t('header&footer.nav.admission')}
               </Link>
               <Link
                 className={`${styles.nav__a} ${
@@ -146,7 +150,7 @@ export const Header = ({ scrollRef }) => {
                 onClick={() => {
                   linkClick('contacts', false);
                 }}>
-                Контакты
+                {t('header&footer.nav.contacts')}
               </Link>
               <a
                 className={`${styles.nav__a} ${
@@ -156,9 +160,10 @@ export const Header = ({ scrollRef }) => {
                   linkClick('tarlan-kids', false);
                 }}
                 href="https://tarlan-kids.kz/index.php/ru/">
-                Детский сад
+                {t('header&footer.nav.kindergarten')}
               </a>
             </div>
+            <SelectLang />
           </div>
         </div>
       </header>
@@ -176,6 +181,7 @@ export const Header = ({ scrollRef }) => {
               }}
             />
           </Link>
+
           <div className={styles.menuControls}>
             <svg
               className={`${styles.ham} ${styles.hamRotate} ${styles.ham8} ${
@@ -207,7 +213,7 @@ export const Header = ({ scrollRef }) => {
                     onClick={() => {
                       linkClick('home', false);
                     }}>
-                    Главная
+                    {t('header&footer.nav.main')}
                   </Link>
                   <Link
                     className={`${styles.dropdown__a} ${
@@ -218,7 +224,7 @@ export const Header = ({ scrollRef }) => {
                       handleLinkClick();
                       linkClick('about', true);
                     }}>
-                    О нас
+                    {t('header&footer.nav.aboutSchool')}
                   </Link>
                   <Link
                     className={`${styles.dropdown__a} ${
@@ -229,7 +235,7 @@ export const Header = ({ scrollRef }) => {
                       handleLinkClick();
                       linkClick('teachers', true);
                     }}>
-                    Преподаватели
+                    {t('header&footer.nav.teachers')}
                   </Link>
                   <Link
                     className={`${styles.dropdown__a} ${
@@ -240,7 +246,7 @@ export const Header = ({ scrollRef }) => {
                       handleLinkClick();
                       linkClick('news', true);
                     }}>
-                    Новости
+                    {t('header&footer.nav.news')}
                   </Link>
                   <Link
                     className={`${styles.nav__a} ${
@@ -250,7 +256,7 @@ export const Header = ({ scrollRef }) => {
                     onClick={() => {
                       linkClick('admission', false);
                     }}>
-                    Правила поступления
+                    {t('header&footer.nav.admission')}
                   </Link>
                   <Link
                     className={`${styles.nav__a} ${
@@ -260,7 +266,7 @@ export const Header = ({ scrollRef }) => {
                     onClick={() => {
                       linkClick('contacts', false);
                     }}>
-                    Контакты
+                    {t('header&footer.nav.contacts')}
                   </Link>
                   <a
                     className={`${styles.nav__a} ${
@@ -270,8 +276,10 @@ export const Header = ({ scrollRef }) => {
                       linkClick('tarlan-kids', false);
                     }}
                     href="https://tarlan-kids.kz/index.php/ru/">
-                    Детский сад
+                    {t('header&footer.nav.kindergarten')}
                   </a>
+
+                  <SelectLang setMenuOpen={setMenuOpen} />
                 </div>
               </div>
             </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import './../../i18next';
 import Chess from './../../images/Mugs/Chess.jpg';
 import Dance from './../../images/Mugs/Dancing.jpg';
 import Mindstorms from './../../images/Mugs/LegoMindstorms.jpg';
@@ -14,31 +16,36 @@ import styles from './Mugs.module.scss';
 import { Mousewheel, Pagination } from 'swiper/modules';
 
 export default function Mugs() {
+  const { t } = useTranslation();
+  const chessMugName = t('mugs.chess.title');
+  const chessMugText = t('mugs.chess.text');
+  const danceMugName = t('mugs.dance.title');
+  const danceMugText = t('mugs.dance.text');
+  const roboticsMugName = t('mugs.robotics.title');
+  const roboticsMugText = t('mugs.robotics.text');
+
   const images = [
     {
       img: Chess,
-      mugName: 'Шахматы',
-      mugText:
-        'Присоединяйтесь к шахматной секции! Развивайте свои умственные способности, предвосхищайте ходы и наслаждайтесь игрой, погружаясь в увлекательный мир шахмат.',
+      mugName: chessMugName,
+      mugText: chessMugText,
     },
     {
       img: Dance,
-      mugName: 'Танцы',
-      mugText:
-        'Откройте для себя мир танцев вместе с танцевальной секцией! Отталкивайтесь от ритма, раскройте свой талант и наслаждайтесь каждым движением, погружаясь в атмосферу танцевальных эмоций.',
+      mugName: danceMugName,
+      mugText: danceMugText,
     },
     {
       img: Mindstorms,
-      mugName: 'Робототехника Lego Mindstorms',
-      mugText:
-        'Примите вызов технологических инноваций в робототехнической секции! Создавайте, программируйте и воплощайте свои идеи в жизнь, погружаясь в захватывающий мир робототехники и инженерии.',
+      mugName: roboticsMugName,
+      mugText: roboticsMugText,
     },
   ];
 
   return (
     <div className="mugsSlider">
       <div className="container">
-        <h2 className="mugsSlider__title">Кружки и секции</h2>
+        <h2 className="mugsSlider__title"> {t('mugs.title')}</h2>
         <Swiper
           direction={'vertical'}
           slidesPerView={1}

@@ -23,11 +23,11 @@ export const Home = ({ scrollRef }) => {
       <News />
       <Director />
       <Mugs />
-      <SchoolEnglish />
       <Benefits />
       <EduConcept />
       <CompositionOfTeachers />
       <CalendarComponent />
+      <SchoolEnglish />
       <Contacts />
       <QwForm scrollRef={scrollRef} />
     </div>

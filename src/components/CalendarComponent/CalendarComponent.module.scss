@@ -13,12 +13,22 @@
     line-height: 1.125em;
     border: none;
     height: fit-content;
-
-    &__month-view__weekdays {
-      &__weekday {
-        color: $text-color;
-        &--weekend {
-          color: #d10000;
+    &__year-view__months__month {
+      color: $text-color;
+    }
+    &__decade-view__years__year {
+      color: $text-color;
+    }
+    &__century-view__decades__decade {
+      color: $text-color;
+    }
+    &__month-view {
+      &__weekdays {
+        &__weekday {
+          color: $text-color;
+          &--weekend {
+            color: #d10000;
+          }
         }
       }
     }
@@ -38,10 +48,10 @@
   }
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
-    background-color: #f8f8fa;
+    background-color: #271d62;
   }
   .react-calendar__navigation button[disabled] {
-    background-color: #f0f0f0;
+    background-color: #271d62;
   }
   abbr[title] {
     text-decoration: none;
