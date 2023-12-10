@@ -163,7 +163,7 @@ export const Header = ({ scrollRef }) => {
                 {t('header&footer.nav.kindergarten')}
               </a>
             </div>
-            <SelectLang />
+            <SelectLang setMenuOpen={setMenuOpen}/>
           </div>
         </div>
       </header>
