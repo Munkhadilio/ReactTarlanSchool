@@ -2,13 +2,13 @@
 @import './../../sass/base/palette';
 
 .root {
-  margin-top: 100px;
+  @include root;
   @include animation_speed;
   .title {
     @include title;
   }
   .block1 {
-    margin-top: 65px;
+    @include wrapperMargin;
     .subtitle {
       font-weight: 700;
       font-family: 'Roboto';
@@ -43,7 +43,7 @@
   }
 
   .block2 {
-    margin-top: 30px;
+    @include wrapperMargin;
 
     .subtitle {
       font-weight: 700;
@@ -92,7 +92,6 @@
 
 @media (max-width: 1200px) {
   .root {
-    margin-top: 65px;
   }
 }
 

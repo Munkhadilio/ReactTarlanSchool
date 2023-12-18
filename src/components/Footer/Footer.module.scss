@@ -1,7 +1,8 @@
 @import './../../sass/base/palette';
+@import './../../sass/base/mixins';
 
 .root {
-  margin-top: 100px;
+  @include root;
   background-color: $block-color;
   .wrapper {
     display: flex;
@@ -185,7 +186,6 @@
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 65px;
     min-height: 432px;
     .wrapper {
       display: grid;
@@ -344,7 +344,6 @@
 //Минимальная ширина телефона 320px
 @media (max-width: 576px) {
   .root {
-    margin-top: 65px;
     min-height: 432px;
     .wrapper {
       display: grid;

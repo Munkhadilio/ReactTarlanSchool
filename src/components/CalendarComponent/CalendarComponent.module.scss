@@ -129,7 +129,7 @@
 }
 
 .root {
-  margin-top: 100px;
+  @include root;
   @include animation_speed;
   .title {
     @include title;
@@ -139,7 +139,7 @@
   }
 
   .wrapper {
-    margin-top: 65px;
+    @include wrapperMargin;
     flex-wrap: wrap;
     display: flex;
     gap: 20px;
@@ -189,9 +189,7 @@
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 65px;
     .wrapper {
-      margin-top: 30px;
       ul {
         gap: 10px;
         li {

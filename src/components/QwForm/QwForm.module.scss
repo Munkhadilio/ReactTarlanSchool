@@ -2,7 +2,7 @@
 @import '../../sass/base/palette';
 
 .root {
-  margin-top: 100px;
+  @include root;
   @include animation_speed;
   .wrapper {
     background-color: $block-color;
@@ -120,7 +120,6 @@
 
 @media (max-width: 1200px) {
   .root {
-    margin-top: 100px;
     .wrapper {
       .title {
         color: #fff;
@@ -160,13 +159,11 @@
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 65px;
   }
 }
 
 @media (max-width: 768px) {
   .root {
-    margin-top: 65px;
     .wrapper {
       .title {
         color: #fff;
@@ -209,7 +206,6 @@
 //Минимальная ширина телефона 320px
 @media (max-width: 576px) {
   .root {
-    margin-top: 65px;
     .wrapper {
       padding: 10px 15px 10px 15px;
     }

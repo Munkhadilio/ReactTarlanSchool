@@ -7,15 +7,9 @@
 
 :global {
   .mugsSlider {
-    margin-top: 100px;
-    @media screen and (max-width: 992px) {
-      margin-top: 65px;
-    }
+    @include root;
     &__title {
       @include title;
-      @media screen and (max-width: 992px) {
-        font-size: 30px;
-      }
     }
     .container {
       max-width: 1200px;
@@ -23,7 +17,7 @@
       padding: 0 4px 0 4px;
 
       .swiper {
-        margin: 65px auto 0 auto;
+        @include wrapperMargin;
         width: 95%;
         position: relative;
         max-width: 100%;
@@ -36,7 +30,6 @@
         @media screen and (max-width: 992px) {
           max-width: 680px;
           height: 540px;
-          margin-top: 30px;
         }
 
         @media screen and (max-width: 768px) {
@@ -103,7 +96,6 @@
             opacity: 0;
             border-radius: 20px;
             transition: all 0.3s;
-            box-shadow: 4px 13px 30px 1px rgb(51 33 135 / 73%);
           }
         }
 
@@ -153,7 +145,6 @@
           top: 50%;
           bottom: auto !important;
           transform: translateY(-50%);
-
           &.swiper-pagination-bullets .swiper-pagination-bullet {
             margin: 8px 0;
           }

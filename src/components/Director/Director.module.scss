@@ -2,14 +2,14 @@
 @import '../../sass/base/palette';
 
 .root {
-  margin-top: 100px;
+  @include root;
   @include animation_speed;
 
   .title {
     @include title;
   }
   .wrapper {
-    margin-top: 65px;
+    @include wrapperMargin;
     display: grid;
     grid-template-columns: 334px 1fr;
     align-items: center;
@@ -50,14 +50,11 @@
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 100px;
-
     .title {
       @include title;
       font-size: 30px;
     }
     .wrapper {
-      margin-top: 30px;
       gap: 40px;
       img {
         max-width: 334.596px;
@@ -90,9 +87,7 @@
 
 @media (max-width: 768px) {
   .root {
-    margin-top: 50px;
     .wrapper {
-      margin-top: 30px;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr auto;
@@ -126,8 +121,4 @@
       }
     }
   }
-}
-
-//Минимальная ширина телефона 320px
-@media (max-width: 576px) {
 }

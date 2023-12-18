@@ -57,7 +57,7 @@ export const QwForm = ({ scrollRef }) => {
               {t('qwForm.button_send')}
             </button>
           </form>
-          <a className={styles.privacy}>
+          {/* <a className={styles.privacy}>
             {language === 'ru' ? (
               <>
                 Нажимая на кнопку «Отправить» я соглашаюсь с{' '}
@@ -68,7 +68,7 @@ export const QwForm = ({ scrollRef }) => {
                 «Жіберу» түймесін басу арқылы мен <span>құпиялылық саясатымен</span> келісемін
               </>
             )}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

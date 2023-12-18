@@ -102,11 +102,9 @@ export const News = () => {
               })}
             </div>
             {location.pathname === '/' && (
-              <>
-                <Link to="/news">
-                  <button className={styles.button}>{t('news.button_news')}</button>
-                </Link>
-              </>
+              <button className={styles.button} onClick={() => navigate('/news')}>
+                {t('news.button_news')}
+              </button>
             )}
           </>
         )}

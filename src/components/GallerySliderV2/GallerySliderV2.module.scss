@@ -1,7 +1,7 @@
 @import '../../sass/base/mixins';
 
 .root {
-  margin-top: 65px;
+  margin-top: 48px;
   @include animation_speed;
   .container {
     max-width: 1200px;
@@ -36,19 +36,4 @@
 
 .visible {
   @include visible;
-}
-@media (max-width: 1200px) {
-}
-
-@media (max-width: 992px) {
-  .root {
-    margin-top: 48px;
-  }
-}
-
-@media (max-width: 768px) {
-}
-
-//Минимальная ширина телефона 320px
-@media (max-width: 576px) {
 }

@@ -12,7 +12,7 @@ import { Contacts } from './../pages/Contacts/Contacts';
 import { CalendarComponent } from '../components/CalendarComponent/CalendarComponent';
 import Mugs from '../components/Mugs/Mugs';
 import { Director } from '../components/Director/Director';
-
+import { SchoolGallery } from '../components/SchoolGallery/SchoolGallery';
 export const Home = ({ scrollRef }) => {
   // вкладывается в переменную о местоположение DOM
   return (
@@ -26,9 +26,10 @@ export const Home = ({ scrollRef }) => {
       <Benefits />
       <EduConcept />
       <CompositionOfTeachers />
-      <CalendarComponent />
       <SchoolEnglish />
+      <SchoolGallery />
       <Contacts />
+      <CalendarComponent />
       <QwForm scrollRef={scrollRef} />
     </div>
   );

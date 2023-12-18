@@ -1,0 +1,25 @@
+@import './../../sass/base/mixins';
+
+:global {
+  .lg-react-element {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.root {
+  @include root;
+  .title {
+    @include title;
+  }
+  .wrapper {
+    @include wrapperMargin;
+  }
+}

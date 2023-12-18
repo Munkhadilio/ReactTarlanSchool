@@ -18,7 +18,7 @@ export default function GallerySliderV2() {
   const [ref, inView] = useInView({
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
-  const images = [img1, img2, img3];
+  const images = [img2, img3, img1];
 
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
@@ -28,7 +28,7 @@ export default function GallerySliderV2() {
           centeredSlides={true}
           loop={true}
           autoplay={{
-            delay: 2500,
+            delay: 3000,
             disableOnInteraction: true,
           }}
           pagination={{

@@ -16,6 +16,7 @@
     "easymde": "^2.18.0",
     "i18next": "^23.7.8",
     "js-cookie": "^3.0.5",
+    "lightgallery": "^2.7.2",
     "react": "^18.2.0",
     "react-calendar": "^4.6.1",
     "react-dom": "^18.2.0",

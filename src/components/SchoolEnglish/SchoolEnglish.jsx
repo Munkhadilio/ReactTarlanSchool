@@ -20,9 +20,9 @@ export const SchoolEnglish = () => {
         <div className={styles.items}>
           <div className={styles.item}>
             <div className={styles.icon}>
-              <FaGraduationCap />
+              <FaUsers />
             </div>
-            <h3 className={styles.text}>{t('schoolEnglish.block1')}</h3>
+            <h3 className={styles.text}>{t('schoolEnglish.block3')}</h3>
           </div>
           <div className={styles.item}>
             <div className={styles.icon}>
@@ -32,13 +32,7 @@ export const SchoolEnglish = () => {
           </div>
           <div className={styles.item}>
             <div className={styles.icon}>
-              <FaUsers />
-            </div>
-            <h3 className={styles.text}>{t('schoolEnglish.block3')}</h3>
-          </div>
-          <div className={styles.item}>
-            <div className={styles.icon}>
-              <FaBook />
+              <FaGraduationCap />
             </div>
             <h3 className={styles.text}>{t('schoolEnglish.block4')}</h3>
           </div>

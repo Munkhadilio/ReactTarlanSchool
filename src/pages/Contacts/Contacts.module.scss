@@ -2,8 +2,8 @@
 @import './../../sass/base/palette';
 
 .root {
+  @include root;
   @include animation_speed;
-  margin-top: 100px;
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -12,7 +12,7 @@
       @include title;
     }
     .wrapper {
-      margin-top: 65px;
+      @include wrapperMargin;
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -56,7 +56,6 @@
 
 @media (max-width: 1200px) {
   .root {
-    margin-top: 65px;
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -70,7 +69,6 @@
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 65px;
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -80,7 +78,6 @@
         font-size: 30px;
       }
       .wrapper {
-        margin-top: 30px;
         gap: 30px;
         .contacts {
           gap: 15px;
@@ -130,13 +127,9 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px 0 20px;
-      .title {
-      }
       .wrapper {
         .contacts {
           margin: 0;
-        }
-        .responsive__map {
         }
       }
     }

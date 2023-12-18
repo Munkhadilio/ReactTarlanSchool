@@ -1,14 +1,15 @@
 @import '../../sass/base/mixins';
 @import '../../sass/base/palette';
 .root {
-  margin-top: 65px;
+  @include root;
   @include animation_speed;
   .title {
-    text-align: left;
     color: #ffffff;
     font-family: 'Montserrat Alternates';
-    font-size: 40px;
     font-weight: 700;
+    margin: 0;
+    @include title;
+    text-align: left;
   }
 
   .buttons {
@@ -108,25 +109,19 @@
   @include visible;
 }
 
-@media (max-width: 1200px) {
-  .root {
-  }
-}
-
 @media (max-width: 768px) {
   .root {
-    .title {
-      font-size: 30px;
-    }
-  }
-}
-
-//Минимальная ширина телефона 320px
-@media (max-width: 576px) {
-  .root {
-    margin-top: 65px;
-    .title {
-      font-size: 24px;
+    .buttons {
+      margin: 48px 0 0 0;
+      display: flex;
+      justify-content: left;
+      .apply__button {
+        width: 50%;
+      }
+      .button__consultation {
+        width: 50%;
+        margin-right: 0;
+      }
     }
   }
 }

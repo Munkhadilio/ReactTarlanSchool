@@ -279,7 +279,7 @@ export const Header = ({ scrollRef }) => {
                     {t('header&footer.nav.kindergarten')}
                   </a>
 
-                  <SelectLang setMenuOpen={setMenuOpen} />
+                  <SelectLang mobileOnly={true} setMenuOpen={setMenuOpen} />
                 </div>
               </div>
             </div>

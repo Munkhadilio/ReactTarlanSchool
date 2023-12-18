@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nowLanguage, setLanguage } from '../../redux/slices/language';
 
-export const SelectLang = ({ setMenuOpen }) => {
+export const SelectLang = ({ mobileOnly, setMenuOpen }) => {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
 
@@ -29,6 +29,7 @@ export const SelectLang = ({ setMenuOpen }) => {
     clearTimeout(timeoutRef.current);
     setShowDropdown(true);
   };
+
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setShowDropdown(false);
@@ -71,7 +72,7 @@ export const SelectLang = ({ setMenuOpen }) => {
                 onClick={() => {
                   dispatch(setLanguage(dropdown.name));
                   changeLanguage(dropdown.name);
-                  setMenuOpen(false);
+                  mobileOnly && setMenuOpen(false);
                 }}
                 className={styles.lang__img}
                 src={dropdown.image}

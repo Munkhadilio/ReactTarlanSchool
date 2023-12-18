@@ -2,7 +2,7 @@
 @import '../../sass/base/palette';
 
 .root {
-  margin-top: 100px;
+  @include root;
   @include animation_speed;
 
   .title {
@@ -10,7 +10,7 @@
   }
 
   .items {
-    margin-top: 65px;
+    @include wrapperMargin;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(2, 1fr);
@@ -55,14 +55,11 @@
 
 @media (max-width: 1200px) {
   .root {
-    margin-top: 100px;
-
     .title {
       @include title;
     }
 
     .items {
-      margin: 65px auto 0 auto;
       .item {
         display: flex;
         height: 397px;
@@ -96,14 +93,12 @@
 
 @media (max-width: 992px) {
   .root {
-    margin-top: 65px;
     .title {
       @include title;
       font-size: 30px;
     }
 
     .items {
-      margin: 30px auto 0 auto;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(4, 1fr);
@@ -175,11 +170,8 @@
 
 @media (max-width: 768px) {
   .root {
-    margin-top: 65px;
-
     .title {
       @include title;
-      font-size: 30px;
     }
 
     .items {
@@ -187,7 +179,6 @@
       grid-template-columns: 1fr;
       grid-template-rows: repeat(4, 1fr);
       width: 100%;
-      margin: 30px auto 0 auto;
       .first {
         grid-column-start: 1;
         grid-column-end: 2;
@@ -256,11 +247,8 @@
 
 @media (max-width: 576px) {
   .root {
-    margin-top: 65px;
-
     .title {
       @include title;
-      font-size: 30px;
     }
 
     .items {
@@ -268,7 +256,6 @@
       grid-template-columns: 1fr;
       grid-template-rows: repeat(4, 1fr);
       width: 100%;
-      margin: 30px auto 0 auto;
       .first {
         grid-column-start: 1;
         grid-column-end: 2;
