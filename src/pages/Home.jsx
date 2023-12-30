@@ -21,16 +21,16 @@ export const Home = ({ scrollRef }) => {
       <GallerySliderV2 />
       <AboutSchool />
       <News />
+      <EduConcept />
       <Director />
       <Mugs />
       <Benefits />
-      <EduConcept />
-      <CompositionOfTeachers />
-      <SchoolEnglish />
       <SchoolGallery />
-      <Contacts />
+      <SchoolEnglish />
+      <CompositionOfTeachers />
       <CalendarComponent />
       <QwForm scrollRef={scrollRef} />
+      <Contacts />
     </div>
   );
 };

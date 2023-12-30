@@ -24,20 +24,6 @@ export const Header = ({ scrollRef }) => {
     setShowDropdown(false); // Установка состояния на false после клика на ссылку
   };
 
-  const handleDropdownClick = () => {
-    setMenuOpen(!isMenuOpen);
-  };
-
-  const scrollToElement = async () => {
-    await navigate('/');
-    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const linkClick = (route, dropdownStyle) => {
-    dispatch(setActiveLink(route));
-    dispatch(setDropdownStyle(dropdownStyle));
-  };
-
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);
     setShowDropdown(true);
@@ -47,10 +33,39 @@ export const Header = ({ scrollRef }) => {
       setShowDropdown(false);
     }, 1000);
   };
+
   useEffect(() => {
+    const path = location.pathname;
+    const links = {
+      '/': 'home',
+      '/about': 'about',
+      '/teachers': 'teachers',
+      '/news': 'news',
+      '/admission': 'admission',
+      '/contacts': 'contacts',
+      '/tarlan-kids': 'tarlan-kids',
+    };
+    const activeLink = links[path] || ''; // Проверяем, есть ли соответствие пути
+    switch (activeLink) {
+      case 'about':
+        dispatch(setDropdownStyle(true));
+        break;
+      case 'teachers':
+        dispatch(setDropdownStyle(true));
+        break;
+      case 'news':
+        dispatch(setDropdownStyle(true));
+        break;
+      default:
+        dispatch(setDropdownStyle(false));
+        break;
+    }
+    dispatch(setActiveLink(activeLink)); // Установка активной ссылки
+
     // Установить isMenuOpen в false при каждом изменении маршрута
     setMenuOpen(false);
   }, [location]);
+
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -72,17 +87,13 @@ export const Header = ({ scrollRef }) => {
                 alt="logo"
                 onClick={() => {
                   window.scrollTo(0, 0);
-                  linkClick('home', false);
                 }}
               />
             </Link>
             <div className={styles.nav}>
               <Link
                 className={`${styles.nav__a} ${activeLink === 'home' ? styles.nav__a__active : ''}`}
-                to="/"
-                onClick={() => {
-                  linkClick('home', false);
-                }}>
+                to="/">
                 {t('header&footer.nav.main')}
               </Link>
               <div
@@ -103,7 +114,6 @@ export const Header = ({ scrollRef }) => {
                       to="/about"
                       onClick={() => {
                         handleLinkClick();
-                        linkClick('about', true);
                       }}>
                       {t('header&footer.nav.aboutUs')}
                     </Link>
@@ -114,7 +124,6 @@ export const Header = ({ scrollRef }) => {
                       to="/teachers"
                       onClick={() => {
                         handleLinkClick();
-                        linkClick('teachers', true);
                       }}>
                       {t('header&footer.nav.teachers')}
                     </Link>
@@ -125,7 +134,6 @@ export const Header = ({ scrollRef }) => {
                       to="/news"
                       onClick={() => {
                         handleLinkClick();
-                        linkClick('news', true);
                       }}>
                       {t('header&footer.nav.news')}
                     </Link>
@@ -136,34 +144,25 @@ export const Header = ({ scrollRef }) => {
                 className={`${styles.nav__a} ${
                   activeLink === 'admission' ? styles.nav__a__active : ''
                 }`}
-                to="/admission"
-                onClick={() => {
-                  linkClick('admission', false);
-                }}>
+                to="/admission">
                 {t('header&footer.nav.admission')}
               </Link>
               <Link
                 className={`${styles.nav__a} ${
                   activeLink === 'contacts' ? styles.nav__a__active : ''
                 }`}
-                to="/contacts"
-                onClick={() => {
-                  linkClick('contacts', false);
-                }}>
+                to="/contacts">
                 {t('header&footer.nav.contacts')}
               </Link>
               <a
                 className={`${styles.nav__a} ${
                   activeLink === 'tarlan-kids' ? styles.nav__a__active : ''
                 }`}
-                onClick={() => {
-                  linkClick('tarlan-kids', false);
-                }}
                 href="https://tarlan-kids.kz/index.php/ru/">
                 {t('header&footer.nav.kindergarten')}
               </a>
             </div>
-            <SelectLang setMenuOpen={setMenuOpen}/>
+            <SelectLang setMenuOpen={setMenuOpen} />
           </div>
         </div>
       </header>
@@ -177,7 +176,6 @@ export const Header = ({ scrollRef }) => {
               alt="logo"
               onClick={() => {
                 window.scrollTo(0, 0);
-                linkClick('home', false);
               }}
             />
           </Link>
@@ -189,7 +187,7 @@ export const Header = ({ scrollRef }) => {
               } `}
               viewBox="0 0 100 100"
               width="60"
-              onClick={() => handleDropdownClick()}>
+              onClick={() => setMenuOpen(!isMenuOpen)}>
               <path
                 className={`${styles.line}  ${styles.top} `}
                 d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
@@ -209,10 +207,7 @@ export const Header = ({ scrollRef }) => {
                     className={`${styles.nav__a} ${
                       activeLink === 'home' ? styles.nav__a__active : ''
                     }`}
-                    to="/"
-                    onClick={() => {
-                      linkClick('home', false);
-                    }}>
+                    to="/">
                     {t('header&footer.nav.main')}
                   </Link>
                   <Link
@@ -222,7 +217,6 @@ export const Header = ({ scrollRef }) => {
                     to="/about"
                     onClick={() => {
                       handleLinkClick();
-                      linkClick('about', true);
                     }}>
                     {t('header&footer.nav.aboutSchool')}
                   </Link>
@@ -233,7 +227,6 @@ export const Header = ({ scrollRef }) => {
                     to="/teachers"
                     onClick={() => {
                       handleLinkClick();
-                      linkClick('teachers', true);
                     }}>
                     {t('header&footer.nav.teachers')}
                   </Link>
@@ -244,7 +237,6 @@ export const Header = ({ scrollRef }) => {
                     to="/news"
                     onClick={() => {
                       handleLinkClick();
-                      linkClick('news', true);
                     }}>
                     {t('header&footer.nav.news')}
                   </Link>
@@ -252,29 +244,20 @@ export const Header = ({ scrollRef }) => {
                     className={`${styles.nav__a} ${
                       activeLink === 'admission' ? styles.nav__a__active : ''
                     }`}
-                    to="/admission"
-                    onClick={() => {
-                      linkClick('admission', false);
-                    }}>
+                    to="/admission">
                     {t('header&footer.nav.admission')}
                   </Link>
                   <Link
                     className={`${styles.nav__a} ${
                       activeLink === 'contacts' ? styles.nav__a__active : ''
                     }`}
-                    to="/contacts"
-                    onClick={() => {
-                      linkClick('contacts', false);
-                    }}>
+                    to="/contacts">
                     {t('header&footer.nav.contacts')}
                   </Link>
                   <a
                     className={`${styles.nav__a} ${
                       activeLink === 'tarlan-kids' ? styles.nav__a__active : ''
                     }`}
-                    onClick={() => {
-                      linkClick('tarlan-kids', false);
-                    }}
                     href="https://tarlan-kids.kz/index.php/ru/">
                     {t('header&footer.nav.kindergarten')}
                   </a>

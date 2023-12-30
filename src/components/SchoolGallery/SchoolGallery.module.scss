@@ -16,10 +16,15 @@
 
 .root {
   @include root;
+  @include animation_speed;
   .title {
     @include title;
   }
   .wrapper {
     @include wrapperMargin;
   }
+}
+
+.visible {
+  @include visible;
 }

@@ -12,14 +12,19 @@ import 'lightgallery/scss/lg-zoom.scss';
 // import plugins if you need
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import { useInView } from 'react-intersection-observer';
 
 export const SchoolGallery = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Опция, чтобы анимация сработала только один раз
+  });
+
   const onInit = () => {
     console.log('lightGallery has been initialized');
   };
 
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <div className={styles.title}>Галерея</div>
         <div className={styles.wrapper}>

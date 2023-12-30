@@ -13,7 +13,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import styles from './Mugs.module.scss';
 
-import { Mousewheel, Pagination } from 'swiper/modules';
+import { Autoplay, Mousewheel, Pagination } from 'swiper/modules';
 
 export default function Mugs() {
   const { t } = useTranslation();
@@ -47,15 +47,19 @@ export default function Mugs() {
       <div className="container">
         <h2 className="mugsSlider__title"> {t('mugs.title')}</h2>
         <Swiper
-          direction={'vertical'}
+          direction={'horizontal'}
           slidesPerView={1}
           spaceBetween={30}
           mousewheel={true}
           loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true,
+          }}
           pagination={{
             clickable: true,
           }}
-          modules={[Mousewheel, Pagination]}
+          modules={[Autoplay, Mousewheel, Pagination]}
           className="swiper2">
           {images.map((mug, index) => (
             <SwiperSlide key={index}>

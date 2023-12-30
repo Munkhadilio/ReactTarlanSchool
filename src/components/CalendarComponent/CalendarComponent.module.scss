@@ -133,9 +133,6 @@
   @include animation_speed;
   .title {
     @include title;
-    @media screen and (max-width: 992px) {
-      font-size: 30px;
-    }
   }
 
   .wrapper {
