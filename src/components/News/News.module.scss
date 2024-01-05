@@ -57,7 +57,7 @@
     display: grid;
     gap: 27px;
     grid-template-columns: repeat(4, minmax(240px, 280px));
-    grid-template-rows: minmax(266px, 315px);
+    grid-auto-rows: auto;
     justify-content: space-between;
     .item {
       display: flex;
@@ -156,7 +156,6 @@
   .root {
     .items {
       grid-template-columns: repeat(3, minmax(240px, 270px));
-      grid-template-rows: minmax(266px, 293px);
     }
   }
 }
@@ -165,7 +164,7 @@
   .root {
     .items {
       grid-template-columns: repeat(2, minmax(240px, 270px));
-      grid-template-rows: minmax(266px, 293px);
+
       justify-content: space-around;
     }
   }
@@ -177,7 +176,7 @@
     .items {
       display: grid;
       grid-template-columns: minmax(335px, 500px);
-      grid-template-rows: minmax(266px, 293px);
+
       gap: 20px;
       .item {
         display: flex;

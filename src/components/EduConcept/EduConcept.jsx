@@ -20,15 +20,15 @@ export const EduConcept = () => {
         <h2 className={styles.title}>{t('eduConcept.subtitle')}</h2>
         <div className={styles.items}>
           <div className={styles.item}>
-            <img src={edu3} alt="edu3" />
+            <img src={edu2} alt="edu3" />
             <h3 className={styles.text}>{t('eduConcept.block1')}</h3>
           </div>
           <div className={styles.item}>
-            <img src={edu2} alt="edu2" />
+            <img src={edu1} alt="edu2" />
             <h3 className={styles.text}>{t('eduConcept.block2')}</h3>
           </div>
           <div className={styles.item}>
-            <img src={edu1} alt="edu1" />
+            <img src={edu3} alt="edu1" />
             <h3 className={styles.text}>{t('eduConcept.block3')}</h3>
           </div>
         </div>

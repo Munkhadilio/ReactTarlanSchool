@@ -19,16 +19,19 @@ export const SchoolGallery = () => {
     triggerOnce: true, // Опция, чтобы анимация сработала только один раз
   });
 
-  const onInit = () => {
-    console.log('lightGallery has been initialized');
-  };
-
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
       <div className="container">
         <div className={styles.title}>Галерея</div>
         <div className={styles.wrapper}>
-          <LightGallery onInit={onInit} speed={250} plugins={[lgThumbnail, lgZoom]}>
+          <LightGallery
+            speed={250}
+            plugins={[lgThumbnail, lgZoom]}
+            showCloseIcon={true}
+            download={true}
+            rotateRight={true}
+            rotateLeft={true}
+            rotate={true}>
             <a href="https://avatars.mds.yandex.net/get-altay/10175550/2a0000018a5f3cee9ea649186526dac0d112/XXXL">
               <img
                 alt="Линейка"

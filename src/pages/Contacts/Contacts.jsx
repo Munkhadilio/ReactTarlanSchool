@@ -11,7 +11,7 @@ export const Contacts = () => {
   });
   return (
     <div className={`${styles.root} ${inView ? styles.visible : ''}`} ref={ref}>
-      <div className={styles.container}>
+      <div className="container">
         <h1 className={styles.title}>{t('contacts.title')}</h1>
         <div className={styles.wrapper}>
           <div className={styles.contacts}>

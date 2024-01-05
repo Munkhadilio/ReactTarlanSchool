@@ -50,7 +50,7 @@ export default function Mugs() {
           direction={'horizontal'}
           slidesPerView={1}
           spaceBetween={30}
-          mousewheel={true}
+          mousewheel={false}
           loop={true}
           autoplay={{
             delay: 3000,

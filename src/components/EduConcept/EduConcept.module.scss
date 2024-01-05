@@ -40,12 +40,16 @@
     margin: 30px auto 0 auto;
     .item {
       display: flex;
-      gap: 20px;
+      gap: 10px;
       align-items: center;
       justify-content: space-between;
       background-color: $block-color;
       border-radius: 10px;
       padding: 10px;
+      img {
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 }
